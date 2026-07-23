@@ -134,3 +134,37 @@ function addToWishlist(product){
 
     alert(product + " added to wishlist ❤️");
 }
+function showWishlist(){
+
+    let box = document.getElementById("wishlist-items");
+
+    if(!box) return;
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+
+    if(wishlist.length === 0){
+
+        box.innerHTML = "<p>Your wishlist is empty</p>";
+        return;
+
+    }
+
+
+    box.innerHTML = "";
+
+    wishlist.forEach(item => {
+
+        box.innerHTML += `
+        <div class="product-card">
+        <h3>${item}</h3>
+        <p>❤️ Favourite Product</p>
+        </div>
+        `;
+
+    });
+
+}
+
+
+showWishlist();
