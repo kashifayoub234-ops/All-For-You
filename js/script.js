@@ -124,3 +124,13 @@ function searchProduct(){
     });
 
 }
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+function addToWishlist(product){
+
+    wishlist.push(product);
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+    alert(product + " added to wishlist ❤️");
+}
