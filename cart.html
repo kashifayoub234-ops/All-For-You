@@ -2,53 +2,84 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cart - All For You</title>
+<title>Shopping Cart - All For You</title>
 
 <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
 <header>
 
-<h2>All For You</h2>
+<div class="logo">
+<h2>All For You 🛍️</h2>
+</div>
 
 <nav>
 <a href="index.html">Home</a>
 <a href="products.html">Products</a>
-<a href="cart.html">Cart</a>
+<a href="wishlist.html">❤️ Wishlist</a>
+<a href="cart.html">🛒 Cart</a>
 </nav>
 
 </header>
 
 
-<section class="products">
+<section class="cart-page">
 
-<h1>Your Shopping Cart</h1>
+<div class="cart-container">
+
+<h1>🛒 Your Shopping Cart</h1>
+
+<p class="cart-subtitle">
+Review your items before checkout
+</p>
+
 
 <div id="cart-items">
 
-<p>Your cart is empty</p>
+<p>Your cart is empty.</p>
 
 </div>
 
 
+<div class="cart-summary">
+
 <h2 id="total">
-Total: £0
+Total: £0.00
 </h2>
 
+<button class="checkout-btn" onclick="alert('Checkout coming soon!')">
+Proceed to Checkout
+</button>
 
-<button onclick="clearCart()">
+<button class="clear-cart-btn" onclick="clearCart()">
 Clear Cart
 </button>
 
+<a class="continue-shopping" href="products.html">
+← Continue Shopping
+</a>
+
+</div>
+
+</div>
 
 </section>
+
+
+<footer>
+
+<h3>All For You</h3>
+
+<p>Quality products at affordable prices.</p>
+
+<p>© 2026 All For You. All Rights Reserved.</p>
+
+</footer>
 
 
 <script src="js/script.js"></script>
