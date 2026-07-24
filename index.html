@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,130 +12,278 @@
 
 </head>
 
+
 <body>
+
 
 <header>
 
 <div class="logo">
-    <h2>All For You</h2>
+<h2>All For You 🛍️</h2>
 </div>
 
+
 <nav>
+
+<a href="index.html">Home</a>
+<a href="products.html">Products</a>
+<a href="wishlist.html">❤️</a>
+<a href="cart.html">🛒 Cart</a>
+
+</nav>
+
+
 <div class="search">
 
 <input id="searchBox" type="text" placeholder="Search products...">
 
 <button onclick="searchProduct()">
-Search
+🔍
 </button>
 
 </div>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="cart.html">Cart 🛒</a>
-<a href="#">Contact</a>
-</nav>
 
-<div class="search">
-<input type="text" placeholder="Search products...">
-<button>Search</button>
-</div>
 
 </header>
 
 
+
+
 <section class="hero">
 
-<h1>Everything You Need, All In One Place</h1>
+<div>
 
-<p>Quality Products | Best Prices | Fast Delivery</p>
+<h1>
+Everything You Need,
+All In One Place
+</h1>
 
-<button>Shop Now</button>
+
+<p>
+Quality Products • Best Prices • Fast Delivery
+</p>
+
+
+<button>
+Shop Now
+</button>
+
+</div>
+
 
 </section>
+
+
+
 
 
 <section class="categories">
 
-<h2>Shop By Category</h2>
+<h2>
+Shop By Category
+</h2>
+
 
 <div class="category-box">
 
-<div>📱 Electronics</div>
-<div>👕 Fashion</div>
-<div>🏠 Home</div>
-<div>💄 Beauty</div>
-<div>🧸 Toys</div>
-<div>🚗 Accessories</div>
+
+<div>
+📱
+<h3>Electronics</h3>
+</div>
+
+
+<div>
+👕
+<h3>Fashion</h3>
+</div>
+
+
+<div>
+🏠
+<h3>Home</h3>
+</div>
+
+
+<div>
+💄
+<h3>Beauty</h3>
+</div>
+
+
+<div>
+🧸
+<h3>Toys</h3>
+</div>
+
+
+<div>
+🚗
+<h3>Accessories</h3>
+</div>
+
 
 </div>
+
 
 </section>
 
 
+
+
+
+
 <section class="products">
 
-<h2>Featured Products</h2>
+
+<h2>
+Featured Products
+</h2>
+
 
 
 <div class="product-grid">
 
 
+
 <div class="product-card">
+
+<span class="sale">
+SALE
+</span>
 
 <img src="images/product1.jpg">
 
-<h3>Smart Watch</h3>
 
-<p>£39.99</p>
+<h3>
+Smart Watch
+</h3>
 
-<button>Add To Cart</button>
+
+<div>
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+£39.99
+</p>
+
+
+<button onclick="addToCart('Smart Watch',39.99)">
+Add To Cart 🛒
+</button>
+
 
 </div>
 
 
 
+
+
+
 <div class="product-card">
+
+<span class="sale">
+SALE
+</span>
+
 
 <img src="images/product2.jpg">
 
-<h3>Wireless Earbuds</h3>
 
-<p>£24.99</p>
+<h3>
+Wireless Earbuds
+</h3>
 
-<button>Add To Cart</button>
+
+<div>
+⭐⭐⭐⭐⭐
+</div>
+
+
+<p>
+£24.99
+</p>
+
+
+<button onclick="addToCart('Wireless Earbuds',24.99)">
+Add To Cart 🛒
+</button>
+
 
 </div>
+
+
+
 
 
 
 <div class="product-card">
 
+
 <img src="images/product3.jpg">
 
-<h3>Home Gadget</h3>
 
-<p>£29.99</p>
+<h3>
+Home Gadget
+</h3>
 
-<button>Add To Cart</button>
+
+<div>
+⭐⭐⭐⭐
+</div>
+
+
+<p>
+£29.99
+</p>
+
+
+<button onclick="addToCart('Home Gadget',29.99)">
+Add To Cart 🛒
+</button>
+
 
 </div>
 
 
+
+
 </div>
+
 
 </section>
 
 
 
+
+
 <footer>
 
-<p>© 2026 All For You. All Rights Reserved.</p>
+
+<h3>
+All For You
+</h3>
+
+
+<p>
+Quality products at affordable prices.
+</p>
+
+
+<p>
+© 2026 All For You. All Rights Reserved.
+</p>
+
 
 </footer>
 
 
+
 <script src="js/script.js"></script>
 
+
 </body>
+
 </html>
