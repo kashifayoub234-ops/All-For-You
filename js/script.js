@@ -344,3 +344,25 @@ function showWishlist() {
 // START
 showCart();
 showWishlist();
+function showCheckoutTotal() {
+
+    let checkoutTotal = document.getElementById("checkout-total");
+
+    if (!checkoutTotal) return;
+
+    let total = 0;
+
+    cart.forEach(item => {
+
+        let price = Number(item.price) || 0;
+        let quantity = item.quantity || 1;
+
+        total += price * quantity;
+
+    });
+
+    checkoutTotal.innerHTML =
+        "Total: £" + total.toFixed(2);
+}
+
+showCheckoutTotal();
