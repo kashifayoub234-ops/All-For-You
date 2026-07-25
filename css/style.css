@@ -674,3 +674,42 @@ header{
         width: 100%;
     }
 }
+/* PAYMENT METHODS */
+
+.payment-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 15px;
+}
+
+.payment-section h2 {
+    margin-bottom: 15px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.payment-option input {
+    width: auto !important;
+}
+
+.payment-option:hover {
+    border-color: #ff9900;
+}
+
+.secure-payment {
+    margin-top: 15px;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
