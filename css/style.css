@@ -413,3 +413,16 @@ header{
         font-size: 25px;
     }
 }
+.cart-product-image {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: contain;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
