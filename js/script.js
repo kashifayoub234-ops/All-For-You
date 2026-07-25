@@ -411,3 +411,27 @@ function showCheckoutItems() {
 }
 
 showCheckoutItems();
+// PLACE ORDER
+const checkoutForm = document.getElementById("checkout-form");
+
+if (checkoutForm) {
+
+    checkoutForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        if (cart.length === 0) {
+            alert("Your cart is empty.");
+            return;
+        }
+
+        // Clear cart after successful order
+        cart = [];
+        localStorage.removeItem("cart");
+
+        // Go to confirmation page
+        window.location.href = "success.html";
+
+    });
+
+}
