@@ -531,3 +531,46 @@ header{
         font-size: 22px;
     }
 }
+/* ===== ORDER SUMMARY ===== */
+
+.order-summary{
+    margin:25px 0;
+    background:#fafafa;
+    padding:20px;
+    border-radius:15px;
+}
+
+.order-summary h2{
+    margin-bottom:20px;
+}
+
+.checkout-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px 0;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.checkout-item:last-child{
+    border-bottom:none;
+}
+
+.checkout-item img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    border-radius:10px;
+    background:white;
+    padding:5px;
+}
+
+.checkout-item h3{
+    margin:0;
+    font-size:18px;
+}
+
+.checkout-item p{
+    margin:4px 0;
+    color:#666;
+}
