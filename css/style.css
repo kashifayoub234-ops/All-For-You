@@ -426,3 +426,10 @@ header{
     align-items: center;
     gap: 15px;
 }
+#cart-items .cart-item img.cart-product-image {
+    width: 70px !important;
+    height: 70px !important;
+    max-width: 70px !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+}
