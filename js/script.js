@@ -1,4 +1,9 @@
+// =========================
+// CART
+// =========================
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 
 // PRODUCT IMAGES
 const productImages = {
@@ -11,15 +16,38 @@ const productImages = {
 // ADD TO CART
 function addToCart(name, price) {
 
-    cart.push({
-        name: name,
-        price: Number(price),
-        image: productImages[name] || ""
-    });
+    let existingProduct = cart.find(item => item.name === name);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (existingProduct) {
+
+        existingProduct.quantity =
+            (existingProduct.quantity || 1) + 1;
+
+    } else {
+
+        cart.push({
+            name: name,
+            price: Number(price),
+            image: productImages[name] || "",
+            quantity: 1
+        });
+
+    }
+
+    saveCart();
 
     alert(name + " added to cart 🛒");
+}
+
+
+// SAVE CART
+function saveCart() {
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
 }
 
 
@@ -31,8 +59,11 @@ function showCart() {
 
     if (!cartBox) return;
 
+
     if (cart.length === 0) {
-        cartBox.innerHTML = "<p>Your cart is empty.</p>";
+
+        cartBox.innerHTML =
+            "<p>Your cart is empty.</p>";
 
         if (totalBox) {
             totalBox.innerHTML = "Total: £0.00";
@@ -41,52 +72,143 @@ function showCart() {
         return;
     }
 
+
     let total = 0;
+
     cartBox.innerHTML = "";
+
 
     cart.forEach((item, index) => {
 
-        total += Number(item.price) || 0;
+        // Old cart items may not have quantity
+        if (!item.quantity) {
+            item.quantity = 1;
+        }
 
-        let image = item.image || productImages[item.name] || "";
+        let price = Number(item.price) || 0;
+
+        total += price * item.quantity;
+
+        let image =
+            item.image ||
+            productImages[item.name] ||
+            "";
+
 
         cartBox.innerHTML += `
-            <div class="cart-item">
 
-                <img
-                    src="${image}"
-                    alt="${item.name}"
-                    class="cart-product-image"
-                >
+        <div class="cart-item">
 
-                <div class="cart-product-info">
-                    <h3>${item.name}</h3>
 
-                    <p>£${Number(item.price).toFixed(2)}</p>
+            <img
+                src="${image}"
+                alt="${item.name}"
+                style="
+                width:80px;
+                height:80px;
+                max-width:80px;
+                object-fit:contain;
+                border-radius:10px;
+                "
+            >
 
-                    <button onclick="removeItem(${index})">
-                        Remove
+
+            <div class="cart-product-info">
+
+                <h3>${item.name}</h3>
+
+                <p>
+                    £${price.toFixed(2)}
+                </p>
+
+
+                <div class="quantity-controls">
+
+                    <button onclick="decreaseQuantity(${index})">
+                        −
                     </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button onclick="increaseQuantity(${index})">
+                        +
+                    </button>
+
                 </div>
 
+
+                <button onclick="removeItem(${index})">
+                    Remove
+                </button>
+
+
             </div>
+
+        </div>
+
         `;
+
     });
 
+
+    saveCart();
+
+
     if (totalBox) {
-        totalBox.innerHTML = "Total: £" + total.toFixed(2);
+
+        totalBox.innerHTML =
+            "Total: £" + total.toFixed(2);
+
     }
+
 }
 
 
-// REMOVE ITEM
+// INCREASE QUANTITY
+function increaseQuantity(index) {
+
+    cart[index].quantity =
+        (cart[index].quantity || 1) + 1;
+
+    saveCart();
+
+    showCart();
+
+}
+
+
+// DECREASE QUANTITY
+function decreaseQuantity(index) {
+
+    let quantity =
+        cart[index].quantity || 1;
+
+
+    if (quantity > 1) {
+
+        cart[index].quantity =
+            quantity - 1;
+
+    }
+
+    saveCart();
+
+    showCart();
+
+}
+
+
+// REMOVE PRODUCT
 function removeItem(index) {
 
     cart.splice(index, 1);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    saveCart();
 
     showCart();
+
 }
 
 
@@ -98,55 +220,91 @@ function clearCart() {
     localStorage.removeItem("cart");
 
     showCart();
+
 }
 
 
+
+// =========================
 // SEARCH
+// =========================
+
 function searchProduct() {
 
-    let searchBox = document.getElementById("searchBox");
+    let searchBox =
+        document.getElementById("searchBox");
 
     if (!searchBox) return;
 
-    let input = searchBox.value.toLowerCase();
 
-    let products = document.querySelectorAll(".product-card");
+    let input =
+        searchBox.value.toLowerCase();
+
+
+    let products =
+        document.querySelectorAll(".product-card");
+
 
     products.forEach(product => {
 
-        let text = product.innerText.toLowerCase();
+        let text =
+            product.innerText.toLowerCase();
+
 
         product.style.display =
-            text.includes(input) ? "block" : "none";
+            text.includes(input)
+            ? "block"
+            : "none";
+
     });
+
 }
 
 
+
+// =========================
 // WISHLIST
+// =========================
+
 let wishlist =
-    JSON.parse(localStorage.getItem("wishlist")) || [];
+    JSON.parse(
+        localStorage.getItem("wishlist")
+    ) || [];
 
 
 function addToWishlist(product) {
 
     if (!wishlist.includes(product)) {
+
         wishlist.push(product);
+
     }
+
 
     localStorage.setItem(
         "wishlist",
         JSON.stringify(wishlist)
     );
 
-    alert(product + " added to wishlist ❤️");
+
+    alert(
+        product +
+        " added to wishlist ❤️"
+    );
+
 }
 
 
 function showWishlist() {
 
-    let box = document.getElementById("wishlist-items");
+    let box =
+        document.getElementById(
+            "wishlist-items"
+        );
+
 
     if (!box) return;
+
 
     if (wishlist.length === 0) {
 
@@ -154,21 +312,35 @@ function showWishlist() {
             "<p>Your wishlist is empty.</p>";
 
         return;
+
     }
 
+
     box.innerHTML = "";
+
 
     wishlist.forEach(item => {
 
         box.innerHTML += `
-            <div class="product-card">
-                <h3>${item}</h3>
-                <p>❤️ Favourite Product</p>
-            </div>
+
+        <div class="product-card">
+
+            <h3>${item}</h3>
+
+            <p>
+                ❤️ Favourite Product
+            </p>
+
+        </div>
+
         `;
+
     });
+
 }
 
 
+
+// START
 showCart();
 showWishlist();
