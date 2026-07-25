@@ -366,3 +366,48 @@ function showCheckoutTotal() {
 }
 
 showCheckoutTotal();
+function showCheckoutItems() {
+
+    let checkoutItems = document.getElementById("checkout-items");
+
+    if (!checkoutItems) return;
+
+    if (cart.length === 0) {
+        checkoutItems.innerHTML = "<p>Your order is empty.</p>";
+        return;
+    }
+
+    checkoutItems.innerHTML = "";
+
+    cart.forEach(item => {
+
+        let quantity = item.quantity || 1;
+        let price = Number(item.price) || 0;
+        let image = item.image || productImages[item.name] || "";
+
+        checkoutItems.innerHTML += `
+            <div class="checkout-item">
+
+                <img
+                    src="${image}"
+                    alt="${item.name}"
+                    style="
+                        width:65px;
+                        height:65px;
+                        object-fit:contain;
+                        border-radius:8px;
+                    "
+                >
+
+                <div>
+                    <h3>${item.name}</h3>
+                    <p>Quantity: ${quantity}</p>
+                    <p>£${(price * quantity).toFixed(2)}</p>
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+showCheckoutItems();
