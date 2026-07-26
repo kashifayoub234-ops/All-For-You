@@ -1,71 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Products - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?=v6">
-
+<link rel="stylesheet" href="css/style.css?v=8">
 </head>
 
 <body>
 
-<header>
-<h2>All For You</h2>
+<!-- ===== MODERN HEADER ===== -->
 
-<nav>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="cart.html">Cart</a>
-</nav>
+<header class="main-header">
+
+    <div class="header-top">
+
+        <a href="index.html" class="store-logo">
+            <span class="logo-icon">🛍️</span>
+            <span>All For You</span>
+        </a>
+
+        <div class="header-search">
+
+            <input
+                id="searchBox"
+                type="text"
+                placeholder="Search products..."
+                onkeyup="searchProduct()"
+            >
+
+            <button onclick="searchProduct()" aria-label="Search">
+                🔍
+            </button>
+
+        </div>
+
+        <div class="header-actions">
+
+            <a href="wishlist.html" class="header-icon">
+                ❤️
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="header-icon">
+                🛒
+                <span>Cart</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="products.html">All Products</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Home & Living</a>
+        <a href="products.html">Beauty</a>
+
+    </nav>
 
 </header>
 
 
+<!-- ===== PRODUCTS ===== -->
+
 <section class="products">
 
-<h1>Our Products</h1>
+    <h1>Our Products</h1>
 
-<div class="product-grid">
-
-<div class="product-card">
-<img src="./IMG_9535.jpeg" alt="Smart Watch">
-<h3>Smart Watch</h3>
-<p>£39.99</p>
-<button onclick="addToCart('Smart Watch',39.99)">
-Add To Cart
-</button>
-</div>
+    <div class="product-grid">
 
 
-<div class="product-card">
-<img src="./IMG_9536.webp" alt="Wireless Earbuds">
-<h3>Wireless Earbuds</h3>
-<p>£24.99</p>
-<button onclick="addToCart('Wireless Earbuds',24.99)">
-Add To Cart
-</button>
-</div>
+        <!-- SMART WATCH -->
+
+        <div class="product-card">
+
+            <span class="sale">SALE</span>
+
+            <img
+                src="./IMG_9535.jpeg"
+                alt="Smart Watch"
+            >
+
+            <h3>Smart Watch</h3>
+
+            <div>⭐⭐⭐⭐⭐</div>
+
+            <p>£39.99</p>
+
+            <button onclick="addToCart('Smart Watch',39.99)">
+                Add To Cart 🛒
+            </button>
+
+            <button onclick="addToWishlist('Smart Watch')">
+                ❤️ Wishlist
+            </button>
+
+        </div>
 
 
-<div class="product-card">
-<img src="./IMG_9537.jpeg" alt="Home Gadget">
-<h3>Home Gadget</h3>
-<p>£29.99</p>
-<button onclick="addToCart('Home Gadget',29.99)">
-Add To Cart
-</button>
-</div>
+        <!-- WIRELESS EARBUDS -->
+
+        <div class="product-card">
+
+            <span class="sale">SALE</span>
+
+            <img
+                src="./IMG_9536.webp"
+                alt="Wireless Earbuds"
+            >
+
+            <h3>Wireless Earbuds</h3>
+
+            <div>⭐⭐⭐⭐⭐</div>
+
+            <p>£24.99</p>
+
+            <button onclick="addToCart('Wireless Earbuds',24.99)">
+                Add To Cart 🛒
+            </button>
+
+            <button onclick="addToWishlist('Wireless Earbuds')">
+                ❤️ Wishlist
+            </button>
+
+        </div>
 
 
-</div>
+        <!-- HOME GADGET -->
+
+        <div class="product-card">
+
+            <img
+                src="./IMG_9537.jpeg"
+                alt="Home Gadget"
+            >
+
+            <h3>Home Gadget</h3>
+
+            <div>⭐⭐⭐⭐</div>
+
+            <p>£29.99</p>
+
+            <button onclick="addToCart('Home Gadget',29.99)">
+                Add To Cart 🛒
+            </button>
+
+            <button onclick="addToWishlist('Home Gadget')">
+                ❤️ Wishlist
+            </button>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<script src="js/script.js"></script>
+<footer>
+
+    <h3>All For You</h3>
+
+    <p>Quality products at affordable prices.</p>
+
+    <p>© 2026 All For You. All Rights Reserved.</p>
+
+</footer>
+
+
+<script src="js/script.js?v=10"></script>
 
 </body>
 </html>
