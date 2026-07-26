@@ -7,7 +7,7 @@
 
 <title>Products - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=11">
 </head>
 
 <body>
@@ -57,14 +57,31 @@
     </div>
 
 
+    <!-- ===== CATEGORY NAVIGATION ===== -->
+
     <nav class="main-nav">
 
         <a href="index.html">Home</a>
-        <a href="products.html">All Products</a>
-        <a href="products.html">Electronics</a>
-        <a href="products.html">Fashion</a>
-        <a href="products.html">Home & Living</a>
-        <a href="products.html">Beauty</a>
+
+        <a href="products.html">
+            All Products
+        </a>
+
+        <a href="products.html?category=electronics">
+            Electronics
+        </a>
+
+        <a href="products.html?category=fashion">
+            Fashion
+        </a>
+
+        <a href="products.html?category=home">
+            Home & Living
+        </a>
+
+        <a href="products.html?category=beauty">
+            Beauty
+        </a>
 
     </nav>
 
@@ -75,14 +92,17 @@
 
 <section class="products">
 
-    <h1>Our Products</h1>
+    <h1 id="products-title">
+        Our Products
+    </h1>
 
-    <div class="product-grid">
+    <div class="product-grid" id="product-grid">
 
 
         <!-- SMART WATCH -->
 
-        <div class="product-card">
+        <div class="product-card"
+             data-category="electronics">
 
             <span class="sale">SALE</span>
 
@@ -116,7 +136,8 @@
 
         <!-- WIRELESS EARBUDS -->
 
-        <div class="product-card">
+        <div class="product-card"
+             data-category="electronics">
 
             <span class="sale">SALE</span>
 
@@ -150,7 +171,8 @@
 
         <!-- HOME GADGET -->
 
-        <div class="product-card">
+        <div class="product-card"
+             data-category="home">
 
             <a href="product.html?item=home-gadget">
                 <img
@@ -179,8 +201,20 @@
 
         </div>
 
-
     </div>
+
+
+    <!-- NO PRODUCTS MESSAGE -->
+
+    <p id="no-products"
+       style="
+       display:none;
+       margin-top:40px;
+       font-size:18px;
+       color:#666;
+       ">
+        No products found in this category.
+    </p>
 
 </section>
 
@@ -191,14 +225,89 @@
 
     <h3>All For You</h3>
 
-    <p>Quality products at affordable prices.</p>
+    <p>
+        Quality products at affordable prices.
+    </p>
 
-    <p>© 2026 All For You. All Rights Reserved.</p>
+    <p>
+        © 2026 All For You. All Rights Reserved.
+    </p>
 
 </footer>
 
 
 <script src="js/script.js?v=15"></script>
+
+
+<!-- ===== CATEGORY FILTER ===== -->
+
+<script>
+
+const categoryParams =
+    new URLSearchParams(window.location.search);
+
+const selectedCategory =
+    categoryParams.get("category");
+
+
+if (selectedCategory) {
+
+    const productCards =
+        document.querySelectorAll(".product-card");
+
+    let visibleProducts = 0;
+
+
+    productCards.forEach(function(card) {
+
+        if (
+            card.dataset.category === selectedCategory
+        ) {
+
+            card.style.display = "block";
+            visibleProducts++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    const categoryNames = {
+
+        electronics: "Electronics",
+
+        fashion: "Fashion",
+
+        home: "Home & Living",
+
+        beauty: "Beauty"
+
+    };
+
+
+    document.getElementById(
+        "products-title"
+    ).textContent =
+        categoryNames[selectedCategory] ||
+        "Our Products";
+
+
+    if (visibleProducts === 0) {
+
+        document.getElementById(
+            "no-products"
+        ).style.display = "block";
+
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
