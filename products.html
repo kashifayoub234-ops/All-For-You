@@ -7,7 +7,7 @@
 
 <title>Products - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
@@ -23,6 +23,8 @@
             <span>All For You</span>
         </a>
 
+        <!-- SEARCH -->
+
         <div class="header-search">
 
             <input
@@ -32,24 +34,40 @@
                 onkeyup="searchProduct()"
             >
 
-            <button onclick="searchProduct()" aria-label="Search">
+            <button
+                onclick="searchProduct()"
+                aria-label="Search">
                 🔍
             </button>
 
         </div>
 
+        <!-- HEADER ACTIONS -->
+
         <div class="header-actions">
 
-            <a href="wishlist.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="wishlist.html"
+                class="header-icon icon-with-badge">
+
                 ❤️
-                <b class="wishlist-count counter-badge">0</b>
+
+                <b class="wishlist-count counter-badge">
+                    0
+                </b>
+
             </a>
 
-            <a href="cart.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="cart.html"
+                class="header-icon icon-with-badge">
+
                 🛒
-                <b class="cart-count counter-badge">0</b>
+
+                <b class="cart-count counter-badge">
+                    0
+                </b>
+
             </a>
 
         </div>
@@ -57,11 +75,13 @@
     </div>
 
 
-    <!-- ===== CATEGORY NAVIGATION ===== -->
+    <!-- ===== NAVIGATION ===== -->
 
     <nav class="main-nav">
 
-        <a href="index.html">Home</a>
+        <a href="index.html">
+            Home
+        </a>
 
         <a href="products.html">
             All Products
@@ -83,6 +103,10 @@
             Beauty
         </a>
 
+        <a href="contact.html">
+            Contact Us
+        </a>
+
     </nav>
 
 </header>
@@ -96,107 +120,158 @@
         Our Products
     </h1>
 
-    <div class="product-grid" id="product-grid">
+    <div
+        class="product-grid"
+        id="product-grid">
 
 
-        <!-- SMART WATCH -->
+        <!-- ===== SMART WATCH ===== -->
 
-        <div class="product-card"
-             data-category="electronics">
+        <div
+            class="product-card"
+            data-category="electronics">
 
-            <span class="sale">SALE</span>
+            <span class="sale">
+                SALE
+            </span>
 
             <a href="product.html?item=smart-watch">
+
                 <img
                     src="./IMG_9535.jpeg"
                     alt="Smart Watch"
                 >
+
             </a>
 
             <h3>
+
                 <a href="product.html?item=smart-watch">
                     Smart Watch
                 </a>
+
             </h3>
 
-            <div>⭐⭐⭐⭐⭐</div>
+            <div>
+                ⭐⭐⭐⭐⭐
+            </div>
 
-            <p>£39.99</p>
+            <p>
+                £39.99
+            </p>
 
-            <button onclick="addToCart('Smart Watch',39.99)">
+            <button
+                onclick="addToCart('Smart Watch',39.99)">
+
                 Add To Cart 🛒
+
             </button>
 
-            <button onclick="addToWishlist('Smart Watch')">
+            <button
+                onclick="addToWishlist('Smart Watch')">
+
                 ❤️ Wishlist
+
             </button>
 
         </div>
 
 
-        <!-- WIRELESS EARBUDS -->
+        <!-- ===== WIRELESS EARBUDS ===== -->
 
-        <div class="product-card"
-             data-category="electronics">
+        <div
+            class="product-card"
+            data-category="electronics">
 
-            <span class="sale">SALE</span>
+            <span class="sale">
+                SALE
+            </span>
 
             <a href="product.html?item=wireless-earbuds">
+
                 <img
                     src="./IMG_9536.webp"
                     alt="Wireless Earbuds"
                 >
+
             </a>
 
             <h3>
+
                 <a href="product.html?item=wireless-earbuds">
                     Wireless Earbuds
                 </a>
+
             </h3>
 
-            <div>⭐⭐⭐⭐⭐</div>
+            <div>
+                ⭐⭐⭐⭐⭐
+            </div>
 
-            <p>£24.99</p>
+            <p>
+                £24.99
+            </p>
 
-            <button onclick="addToCart('Wireless Earbuds',24.99)">
+            <button
+                onclick="addToCart('Wireless Earbuds',24.99)">
+
                 Add To Cart 🛒
+
             </button>
 
-            <button onclick="addToWishlist('Wireless Earbuds')">
+            <button
+                onclick="addToWishlist('Wireless Earbuds')">
+
                 ❤️ Wishlist
+
             </button>
 
         </div>
 
 
-        <!-- HOME GADGET -->
+        <!-- ===== HOME GADGET ===== -->
 
-        <div class="product-card"
-             data-category="home">
+        <div
+            class="product-card"
+            data-category="home">
 
             <a href="product.html?item=home-gadget">
+
                 <img
                     src="./IMG_9537.jpeg"
                     alt="Home Gadget"
                 >
+
             </a>
 
             <h3>
+
                 <a href="product.html?item=home-gadget">
                     Home Gadget
                 </a>
+
             </h3>
 
-            <div>⭐⭐⭐⭐</div>
+            <div>
+                ⭐⭐⭐⭐
+            </div>
 
-            <p>£29.99</p>
+            <p>
+                £29.99
+            </p>
 
-            <button onclick="addToCart('Home Gadget',29.99)">
+            <button
+                onclick="addToCart('Home Gadget',29.99)">
+
                 Add To Cart 🛒
+
             </button>
 
-            <button onclick="addToWishlist('Home Gadget')">
+            <button
+                onclick="addToWishlist('Home Gadget')">
+
                 ❤️ Wishlist
+
             </button>
 
         </div>
@@ -204,16 +279,19 @@
     </div>
 
 
-    <!-- NO PRODUCTS MESSAGE -->
+    <!-- ===== NO PRODUCTS ===== -->
 
-    <p id="no-products"
-       style="
-       display:none;
-       margin-top:40px;
-       font-size:18px;
-       color:#666;
-       ">
+    <p
+        id="no-products"
+        style="
+            display:none;
+            margin-top:40px;
+            font-size:18px;
+            color:#666;
+        ">
+
         No products found in this category.
+
     </p>
 
 </section>
@@ -223,7 +301,9 @@
 
 <footer>
 
-    <h3>All For You</h3>
+    <h3>
+        All For You
+    </h3>
 
     <p>
         Quality products at affordable prices.
@@ -284,7 +364,11 @@ if (selectedCategory) {
 
         home: "Home & Living",
 
-        beauty: "Beauty"
+        beauty: "Beauty",
+
+        toys: "Toys",
+
+        accessories: "Accessories"
 
     };
 
@@ -307,7 +391,6 @@ if (selectedCategory) {
 }
 
 </script>
-
 
 </body>
 </html>
