@@ -2342,13 +2342,12 @@ h1,
 
 .hero {
     position: relative;
-
     min-height: 520px;
 
     background-image:
         linear-gradient(
-            rgba(0, 0, 0, 0.12),
-            rgba(0, 0, 0, 0.12)
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08)
         ),
         url("../6ACC8D4B-40B5-4020-82AB-78592F0845CA.png");
 
@@ -2359,7 +2358,6 @@ h1,
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
 }
 
@@ -2379,12 +2377,6 @@ h1,
 
 
 /* Hide duplicate heading and paragraph */
-
-.hero h1,
-.hero p {
-    display: none;
-}
-
 
 /* REAL CLICKABLE SHOP NOW BUTTON */
 
