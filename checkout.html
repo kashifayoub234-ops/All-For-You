@@ -7,7 +7,7 @@
 
 <title>Checkout - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
@@ -22,6 +22,8 @@
             <span class="logo-icon">🛍️</span>
             <span>All For You</span>
         </a>
+
+        <!-- SEARCH -->
 
         <div class="header-search">
 
@@ -39,12 +41,13 @@
 
         </div>
 
+        <!-- HEADER ACTIONS -->
+
         <div class="header-actions">
 
-            <!-- WISHLIST -->
-
-            <a href="wishlist.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="wishlist.html"
+                class="header-icon icon-with-badge">
 
                 ❤️
 
@@ -54,10 +57,9 @@
 
             </a>
 
-            <!-- CART -->
-
-            <a href="cart.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="cart.html"
+                class="header-icon icon-with-badge">
 
                 🛒
 
@@ -71,14 +73,38 @@
 
     </div>
 
+
+    <!-- ===== NAVIGATION ===== -->
+
     <nav class="main-nav">
 
-        <a href="index.html">Home</a>
-        <a href="products.html">All Products</a>
-        <a href="products.html">Electronics</a>
-        <a href="products.html">Fashion</a>
-        <a href="products.html">Home & Living</a>
-        <a href="products.html">Beauty</a>
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            All Products
+        </a>
+
+        <a href="products.html?category=electronics">
+            Electronics
+        </a>
+
+        <a href="products.html?category=fashion">
+            Fashion
+        </a>
+
+        <a href="products.html?category=home">
+            Home & Living
+        </a>
+
+        <a href="products.html?category=beauty">
+            Beauty
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
 
     </nav>
 
@@ -93,10 +119,15 @@
 
 <h1>Checkout</h1>
 
-<p>Enter your delivery details below.</p>
+<p>
+    Enter your delivery details below.
+</p>
 
 
 <form id="checkout-form">
+
+
+<!-- ===== CUSTOMER DETAILS ===== -->
 
 <label>Full Name</label>
 
@@ -104,6 +135,7 @@
     type="text"
     name="name"
     placeholder="Your full name"
+    autocomplete="name"
     required
 >
 
@@ -114,6 +146,7 @@
     type="email"
     name="email"
     placeholder="Your email"
+    autocomplete="email"
     required
 >
 
@@ -124,6 +157,7 @@
     type="tel"
     name="phone"
     placeholder="Your phone number"
+    autocomplete="tel"
     required
 >
 
@@ -134,6 +168,7 @@
     type="text"
     name="address"
     placeholder="House number and street"
+    autocomplete="street-address"
     required
 >
 
@@ -144,6 +179,7 @@
     type="text"
     name="city"
     placeholder="City"
+    autocomplete="address-level2"
     required
 >
 
@@ -154,6 +190,7 @@
     type="text"
     name="postcode"
     placeholder="Postcode"
+    autocomplete="postal-code"
     required
 >
 
@@ -162,10 +199,16 @@
 
 <div class="order-summary">
 
-    <h2>Order Summary</h2>
+    <h2>
+        Order Summary
+    </h2>
 
     <div id="checkout-items">
-        <p>Your order is empty.</p>
+
+        <p>
+            Your order is empty.
+        </p>
+
     </div>
 
 </div>
@@ -175,7 +218,9 @@
 
 <div class="payment-section">
 
-<h2>Payment Method</h2>
+<h2>
+    Payment Method
+</h2>
 
 
 <label class="payment-option">
@@ -187,7 +232,9 @@
         checked
     >
 
-    <span>💳 Debit / Credit Card</span>
+    <span>
+        💳 Debit / Credit Card
+    </span>
 
 </label>
 
@@ -200,7 +247,9 @@
         value="paypal"
     >
 
-    <span>PayPal</span>
+    <span>
+        PayPal
+    </span>
 
 </label>
 
@@ -213,7 +262,9 @@
         value="applepay"
     >
 
-    <span> Pay</span>
+    <span>
+         Pay
+    </span>
 
 </label>
 
@@ -226,7 +277,9 @@
         value="googlepay"
     >
 
-    <span>Google Pay</span>
+    <span>
+        Google Pay
+    </span>
 
 </label>
 
@@ -248,7 +301,9 @@
 <button
     type="submit"
     class="place-order-btn">
+
     Place Order
+
 </button>
 
 
@@ -263,15 +318,17 @@
 
 <footer>
 
-<h3>All For You</h3>
+    <h3>
+        All For You
+    </h3>
 
-<p>
-    Quality products at affordable prices.
-</p>
+    <p>
+        Quality products at affordable prices.
+    </p>
 
-<p>
-    © 2026 All For You. All Rights Reserved.
-</p>
+    <p>
+        © 2026 All For You. All Rights Reserved.
+    </p>
 
 </footer>
 
