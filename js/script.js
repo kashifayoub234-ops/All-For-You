@@ -1,11 +1,26 @@
 // =========================
-// CART
+// PRODUCT DATA
 // =========================
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const products = {
+    "Smart Watch": {
+        price: 39.99,
+        image: "./IMG_9535.jpeg"
+    },
+
+    "Wireless Earbuds": {
+        price: 24.99,
+        image: "./IMG_9536.webp"
+    },
+
+    "Home Gadget": {
+        price: 29.99,
+        image: "./IMG_9537.jpeg"
+    }
+};
 
 
-// PRODUCT IMAGES
+// Keep compatibility with existing cart code
 const productImages = {
     "Smart Watch": "./IMG_9535.jpeg",
     "Wireless Earbuds": "./IMG_9536.webp",
@@ -13,10 +28,34 @@ const productImages = {
 };
 
 
+// =========================
+// CART
+// =========================
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+}
+
+
 // ADD TO CART
 function addToCart(name, price) {
 
-    let existingProduct = cart.find(item => item.name === name);
+    let productPrice =
+        Number(price) ||
+        products[name]?.price ||
+        0;
+
+    let existingProduct =
+        cart.find(item => item.name === name);
+
 
     if (existingProduct) {
 
@@ -26,13 +65,21 @@ function addToCart(name, price) {
     } else {
 
         cart.push({
-            name: name,
-            price: Number(price),
-            image: productImages[name] || "",
-            quantity: 1
-        });
 
+            name: name,
+
+            price: productPrice,
+
+            image:
+                products[name]?.image ||
+                productImages[name] ||
+                "",
+
+            quantity: 1
+
+        });
     }
+
 
     saveCart();
 
@@ -40,22 +87,15 @@ function addToCart(name, price) {
 }
 
 
-// SAVE CART
-function saveCart() {
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
-
-}
-
-
 // SHOW CART
 function showCart() {
 
-    let cartBox = document.getElementById("cart-items");
-    let totalBox = document.getElementById("total");
+    let cartBox =
+        document.getElementById("cart-items");
+
+    let totalBox =
+        document.getElementById("total");
+
 
     if (!cartBox) return;
 
@@ -66,7 +106,8 @@ function showCart() {
             "<p>Your cart is empty.</p>";
 
         if (totalBox) {
-            totalBox.innerHTML = "Total: £0.00";
+            totalBox.innerHTML =
+                "Total: £0.00";
         }
 
         return;
@@ -80,18 +121,22 @@ function showCart() {
 
     cart.forEach((item, index) => {
 
-        // Old cart items may not have quantity
         if (!item.quantity) {
             item.quantity = 1;
         }
 
-        let price = Number(item.price) || 0;
 
-        total += price * item.quantity;
+        let price =
+            Number(item.price) || 0;
+
+
+        total +=
+            price * item.quantity;
+
 
         let image =
             item.image ||
-            productImages[item.name] ||
+            products[item.name]?.image ||
             "";
 
 
@@ -99,19 +144,17 @@ function showCart() {
 
         <div class="cart-item">
 
-
             <img
                 src="${image}"
                 alt="${item.name}"
                 style="
-                width:80px;
-                height:80px;
-                max-width:80px;
-                object-fit:contain;
-                border-radius:10px;
+                    width:80px;
+                    height:80px;
+                    max-width:80px;
+                    object-fit:contain;
+                    border-radius:10px;
                 "
             >
-
 
             <div class="cart-product-info">
 
@@ -124,7 +167,8 @@ function showCart() {
 
                 <div class="quantity-controls">
 
-                    <button onclick="decreaseQuantity(${index})">
+                    <button
+                        onclick="decreaseQuantity(${index})">
                         −
                     </button>
 
@@ -132,24 +176,24 @@ function showCart() {
                         ${item.quantity}
                     </span>
 
-                    <button onclick="increaseQuantity(${index})">
+                    <button
+                        onclick="increaseQuantity(${index})">
                         +
                     </button>
 
                 </div>
 
 
-                <button onclick="removeItem(${index})">
+                <button
+                    onclick="removeItem(${index})">
                     Remove
                 </button>
-
 
             </div>
 
         </div>
 
         `;
-
     });
 
 
@@ -159,10 +203,10 @@ function showCart() {
     if (totalBox) {
 
         totalBox.innerHTML =
-            "Total: £" + total.toFixed(2);
+            "Total: £" +
+            total.toFixed(2);
 
     }
-
 }
 
 
@@ -175,7 +219,6 @@ function increaseQuantity(index) {
     saveCart();
 
     showCart();
-
 }
 
 
@@ -196,11 +239,10 @@ function decreaseQuantity(index) {
     saveCart();
 
     showCart();
-
 }
 
 
-// REMOVE PRODUCT
+// REMOVE CART ITEM
 function removeItem(index) {
 
     cart.splice(index, 1);
@@ -208,7 +250,6 @@ function removeItem(index) {
     saveCart();
 
     showCart();
-
 }
 
 
@@ -220,7 +261,6 @@ function clearCart() {
     localStorage.removeItem("cart");
 
     showCart();
-
 }
 
 
@@ -234,6 +274,7 @@ function searchProduct() {
     let searchBox =
         document.getElementById("searchBox");
 
+
     if (!searchBox) return;
 
 
@@ -241,11 +282,11 @@ function searchProduct() {
         searchBox.value.toLowerCase();
 
 
-    let products =
+    let productCards =
         document.querySelectorAll(".product-card");
 
 
-    products.forEach(product => {
+    productCards.forEach(product => {
 
         let text =
             product.innerText.toLowerCase();
@@ -253,11 +294,10 @@ function searchProduct() {
 
         product.style.display =
             text.includes(input)
-            ? "block"
-            : "none";
+                ? "block"
+                : "none";
 
     });
-
 }
 
 
@@ -272,29 +312,34 @@ let wishlist =
     ) || [];
 
 
-function addToWishlist(product) {
+// ADD TO WISHLIST
+function addToWishlist(name) {
 
-    if (!wishlist.includes(product)) {
+    if (!wishlist.includes(name)) {
 
-        wishlist.push(product);
+        wishlist.push(name);
 
+        localStorage.setItem(
+            "wishlist",
+            JSON.stringify(wishlist)
+        );
+
+        alert(
+            name +
+            " added to wishlist ❤️"
+        );
+
+    } else {
+
+        alert(
+            name +
+            " is already in your wishlist ❤️"
+        );
     }
-
-
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
-
-
-    alert(
-        product +
-        " added to wishlist ❤️"
-    );
-
 }
 
 
+// SHOW WISHLIST
 function showWishlist() {
 
     let box =
@@ -312,126 +357,254 @@ function showWishlist() {
             "<p>Your wishlist is empty.</p>";
 
         return;
-
     }
 
 
     box.innerHTML = "";
 
 
-    wishlist.forEach(item => {
+    wishlist.forEach((name, index) => {
+
+        let product = products[name];
+
+        if (!product) return;
+
 
         box.innerHTML += `
 
         <div class="product-card">
 
-            <h3>${item}</h3>
+            <img
+                src="${product.image}"
+                alt="${name}"
+            >
+
+            <h3>${name}</h3>
 
             <p>
-                ❤️ Favourite Product
+                £${product.price.toFixed(2)}
             </p>
+
+            <button
+                onclick="addWishlistItemToCart('${name}')">
+                Add To Cart 🛒
+            </button>
+
+            <button
+                onclick="removeFromWishlist(${index})">
+                Remove ❤️
+            </button>
 
         </div>
 
         `;
-
     });
+}
 
+
+// WISHLIST → CART
+function addWishlistItemToCart(name) {
+
+    let product = products[name];
+
+    if (!product) return;
+
+
+    addToCart(
+        name,
+        product.price
+    );
+}
+
+
+// REMOVE FROM WISHLIST
+function removeFromWishlist(index) {
+
+    wishlist.splice(index, 1);
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    showWishlist();
 }
 
 
 
-// START
-showCart();
-showWishlist();
+// =========================
+// CHECKOUT TOTAL
+// =========================
+
 function showCheckoutTotal() {
 
-    let checkoutTotal = document.getElementById("checkout-total");
+    let checkoutTotal =
+        document.getElementById(
+            "checkout-total"
+        );
+
 
     if (!checkoutTotal) return;
 
+
     let total = 0;
+
 
     cart.forEach(item => {
 
-        let price = Number(item.price) || 0;
-        let quantity = item.quantity || 1;
+        let price =
+            Number(item.price) || 0;
 
-        total += price * quantity;
+        let quantity =
+            item.quantity || 1;
+
+
+        total +=
+            price * quantity;
 
     });
 
+
     checkoutTotal.innerHTML =
-        "Total: £" + total.toFixed(2);
+        "Total: £" +
+        total.toFixed(2);
 }
 
-showCheckoutTotal();
+
+
+// =========================
+// CHECKOUT ITEMS
+// =========================
+
 function showCheckoutItems() {
 
-    let checkoutItems = document.getElementById("checkout-items");
+    let checkoutItems =
+        document.getElementById(
+            "checkout-items"
+        );
+
 
     if (!checkoutItems) return;
 
+
     if (cart.length === 0) {
-        checkoutItems.innerHTML = "<p>Your order is empty.</p>";
+
+        checkoutItems.innerHTML =
+            "<p>Your order is empty.</p>";
+
         return;
     }
 
+
     checkoutItems.innerHTML = "";
+
 
     cart.forEach(item => {
 
-        let quantity = item.quantity || 1;
-        let price = Number(item.price) || 0;
-        let image = item.image || productImages[item.name] || "";
+        let quantity =
+            item.quantity || 1;
+
+        let price =
+            Number(item.price) || 0;
+
+        let image =
+            item.image ||
+            products[item.name]?.image ||
+            "";
+
 
         checkoutItems.innerHTML += `
-            <div class="checkout-item">
 
-                <img
-                    src="${image}"
-                    alt="${item.name}"
-                    style="
-                        width:65px;
-                        height:65px;
-                        object-fit:contain;
-                        border-radius:8px;
-                    "
-                >
+        <div class="checkout-item">
 
-                <div>
-                    <h3>${item.name}</h3>
-                    <p>Quantity: ${quantity}</p>
-                    <p>£${(price * quantity).toFixed(2)}</p>
-                </div>
+            <img
+                src="${image}"
+                alt="${item.name}"
+                style="
+                    width:65px;
+                    height:65px;
+                    object-fit:contain;
+                    border-radius:8px;
+                "
+            >
+
+            <div>
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    Quantity: ${quantity}
+                </p>
+
+                <p>
+                    £${(price * quantity).toFixed(2)}
+                </p>
 
             </div>
+
+        </div>
+
         `;
     });
 }
 
-showCheckoutItems();
+
+
+// =========================
 // PLACE ORDER
-const checkoutForm = document.getElementById("checkout-form");
+// =========================
+
+const checkoutForm =
+    document.getElementById(
+        "checkout-form"
+    );
+
 
 if (checkoutForm) {
 
-    checkoutForm.addEventListener("submit", function(event) {
+    checkoutForm.addEventListener(
+        "submit",
+        function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        if (cart.length === 0) {
-            alert("Your cart is empty.");
-            return;
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty."
+                );
+
+                return;
+            }
+
+
+            cart = [];
+
+            localStorage.removeItem(
+                "cart"
+            );
+
+
+            window.location.href =
+                "success.html";
+
         }
-
-        // Clear cart after successful order
-        cart = [];
-        localStorage.removeItem("cart");
-
-        // Go to confirmation page
-        window.location.href = "success.html";
-
-    });
-
+    );
 }
+
+
+
+// =========================
+// START WEBSITE
+// =========================
+
+showCart();
+
+showWishlist();
+
+showCheckoutTotal();
+
+showCheckoutItems();
