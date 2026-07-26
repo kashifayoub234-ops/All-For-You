@@ -2442,3 +2442,33 @@ h1,
         font-size: 14px;
     }
 }
+/* ===== ACTIVE NAVIGATION ORANGE BOX ===== */
+
+.main-nav a.active-nav {
+    background: #ff9900 !important;
+    color: #111111 !important;
+
+    padding: 9px 16px !important;
+    border-radius: 8px !important;
+
+    font-weight: 800 !important;
+
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.30);
+
+    transform: none !important;
+}
+
+/* Active item par purani underline hata dein */
+
+.main-nav a.active-nav::after {
+    display: none !important;
+}
+
+/* Hover bhi orange box */
+
+.main-nav a:hover {
+    background: #ff9900;
+    color: #111111;
+
+    border-radius: 8px;
+}
