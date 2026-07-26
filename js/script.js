@@ -608,3 +608,28 @@ showWishlist();
 showCheckoutTotal();
 
 showCheckoutItems();
+// =========================
+// CART + WISHLIST COUNTERS
+// =========================
+
+function updateHeaderCounters() {
+
+    // Total cart quantity
+    let cartCount = cart.reduce((total, item) => {
+        return total + (item.quantity || 1);
+    }, 0);
+
+    // Wishlist total
+    let wishlistCount = wishlist.length;
+
+    // Update all counters on page
+    document.querySelectorAll(".cart-count").forEach(counter => {
+        counter.textContent = cartCount;
+    });
+
+    document.querySelectorAll(".wishlist-count").forEach(counter => {
+        counter.textContent = wishlistCount;
+    });
+}
+
+updateHeaderCounters();
