@@ -2,46 +2,105 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wishlist - All For You</title>
 
-<link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="css/style.css?v=8">
 </head>
 
 <body>
 
-<header>
+<!-- ===== MODERN HEADER ===== -->
 
-<h2>All For You</h2>
+<header class="main-header">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="cart.html">Cart 🛒</a>
-<a href="wishlist.html">Wishlist ❤️</a>
-</nav>
+    <div class="header-top">
+
+        <a href="index.html" class="store-logo">
+            <span class="logo-icon">🛍️</span>
+            <span>All For You</span>
+        </a>
+
+        <div class="header-search">
+
+            <input
+                id="searchBox"
+                type="text"
+                placeholder="Search products..."
+            >
+
+            <button onclick="window.location.href='products.html'">
+                🔍
+            </button>
+
+        </div>
+
+        <div class="header-actions">
+
+            <a href="wishlist.html" class="header-icon">
+                ❤️
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="header-icon">
+                🛒
+                <span>Cart</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="products.html">All Products</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Home & Living</a>
+        <a href="products.html">Beauty</a>
+
+    </nav>
 
 </header>
 
 
+<!-- ===== WISHLIST ===== -->
+
 <section class="products">
 
-<h1>Your Wishlist ❤️</h1>
+    <h1>Your Wishlist ❤️</h1>
 
-<div id="wishlist-items">
+    <p style="margin-top:10px; color:#666;">
+        Products you've saved for later
+    </p>
 
-<p>Your wishlist is empty</p>
+    <div id="wishlist-items" class="product-grid">
 
-</div>
+        <p>Your wishlist is empty.</p>
+
+    </div>
 
 </section>
 
 
-<script src="js/script.js"></script>
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+    <h3>All For You</h3>
+
+    <p>Quality products at affordable prices.</p>
+
+    <p>© 2026 All For You. All Rights Reserved.</p>
+
+</footer>
+
+
+<script src="js/script.js?v=10"></script>
 
 </body>
 
