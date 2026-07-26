@@ -1218,3 +1218,31 @@ function setActiveNavigation() {
 }
 
 setActiveNavigation();
+// ===== CONTACT US ACTIVE NAV FIX =====
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+    if (currentPage === "contact.html") {
+
+        document.querySelectorAll(".main-nav a")
+            .forEach(function (link) {
+
+                const href =
+                    (link.getAttribute("href") || "")
+                    .split("?")[0]
+                    .toLowerCase();
+
+                if (href === "contact.html") {
+                    link.classList.add("active-nav");
+                }
+
+            });
+    }
+
+});
