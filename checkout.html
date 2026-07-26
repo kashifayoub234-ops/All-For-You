@@ -7,7 +7,7 @@
 
 <title>Checkout - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 </head>
 
 <body>
@@ -31,7 +31,9 @@
                 placeholder="Search products..."
             >
 
-            <button onclick="window.location.href='products.html'">
+            <button
+                onclick="window.location.href='products.html'"
+                aria-label="Search">
                 🔍
             </button>
 
@@ -39,14 +41,30 @@
 
         <div class="header-actions">
 
-            <a href="wishlist.html" class="header-icon">
+            <!-- WISHLIST -->
+
+            <a href="wishlist.html"
+               class="header-icon icon-with-badge">
+
                 ❤️
-                <span>Wishlist</span>
+
+                <b class="wishlist-count counter-badge">
+                    0
+                </b>
+
             </a>
 
-            <a href="cart.html" class="header-icon">
+            <!-- CART -->
+
+            <a href="cart.html"
+               class="header-icon icon-with-badge">
+
                 🛒
-                <span>Cart</span>
+
+                <b class="cart-count counter-badge">
+                    0
+                </b>
+
             </a>
 
         </div>
@@ -54,12 +72,14 @@
     </div>
 
     <nav class="main-nav">
+
         <a href="index.html">Home</a>
         <a href="products.html">All Products</a>
         <a href="products.html">Electronics</a>
         <a href="products.html">Fashion</a>
         <a href="products.html">Home & Living</a>
         <a href="products.html">Beauty</a>
+
     </nav>
 
 </header>
@@ -79,6 +99,7 @@
 <form id="checkout-form">
 
 <label>Full Name</label>
+
 <input
     type="text"
     name="name"
@@ -88,6 +109,7 @@
 
 
 <label>Email</label>
+
 <input
     type="email"
     name="email"
@@ -97,6 +119,7 @@
 
 
 <label>Phone Number</label>
+
 <input
     type="tel"
     name="phone"
@@ -106,6 +129,7 @@
 
 
 <label>Delivery Address</label>
+
 <input
     type="text"
     name="address"
@@ -115,6 +139,7 @@
 
 
 <label>City</label>
+
 <input
     type="text"
     name="city"
@@ -124,6 +149,7 @@
 
 
 <label>Postcode</label>
+
 <input
     type="text"
     name="postcode"
@@ -136,11 +162,11 @@
 
 <div class="order-summary">
 
-<h2>Order Summary</h2>
+    <h2>Order Summary</h2>
 
-<div id="checkout-items">
-<p>Your order is empty.</p>
-</div>
+    <div id="checkout-items">
+        <p>Your order is empty.</p>
+    </div>
 
 </div>
 
@@ -154,59 +180,59 @@
 
 <label class="payment-option">
 
-<input
-    type="radio"
-    name="payment"
-    value="card"
-    checked
->
+    <input
+        type="radio"
+        name="payment"
+        value="card"
+        checked
+    >
 
-<span>💳 Debit / Credit Card</span>
-
-</label>
-
-
-<label class="payment-option">
-
-<input
-    type="radio"
-    name="payment"
-    value="paypal"
->
-
-<span>PayPal</span>
+    <span>💳 Debit / Credit Card</span>
 
 </label>
 
 
 <label class="payment-option">
 
-<input
-    type="radio"
-    name="payment"
-    value="applepay"
->
+    <input
+        type="radio"
+        name="payment"
+        value="paypal"
+    >
 
-<span> Pay</span>
+    <span>PayPal</span>
 
 </label>
 
 
 <label class="payment-option">
 
-<input
-    type="radio"
-    name="payment"
-    value="googlepay"
->
+    <input
+        type="radio"
+        name="payment"
+        value="applepay"
+    >
 
-<span>Google Pay</span>
+    <span> Pay</span>
+
+</label>
+
+
+<label class="payment-option">
+
+    <input
+        type="radio"
+        name="payment"
+        value="googlepay"
+    >
+
+    <span>Google Pay</span>
 
 </label>
 
 
 <p class="secure-payment">
-🔒 Secure payment
+    🔒 Secure payment
 </p>
 
 </div>
@@ -215,7 +241,7 @@
 <!-- ===== TOTAL ===== -->
 
 <h2 id="checkout-total">
-Total: £0.00
+    Total: £0.00
 </h2>
 
 
@@ -240,17 +266,17 @@ Total: £0.00
 <h3>All For You</h3>
 
 <p>
-Quality products at affordable prices.
+    Quality products at affordable prices.
 </p>
 
 <p>
-© 2026 All For You. All Rights Reserved.
+    © 2026 All For You. All Rights Reserved.
 </p>
 
 </footer>
 
 
-<script src="js/script.js?v=11"></script>
+<script src="js/script.js?v=15"></script>
 
 </body>
 </html>
