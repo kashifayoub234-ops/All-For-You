@@ -7,7 +7,7 @@
 
 <title>Wishlist - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
@@ -22,6 +22,8 @@
             <span class="logo-icon">🛍️</span>
             <span>All For You</span>
         </a>
+
+        <!-- SEARCH -->
 
         <div class="header-search">
 
@@ -40,12 +42,15 @@
         </div>
 
 
+        <!-- HEADER ACTIONS -->
+
         <div class="header-actions">
 
             <!-- WISHLIST -->
 
-            <a href="wishlist.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="wishlist.html"
+                class="header-icon icon-with-badge">
 
                 ❤️
 
@@ -58,8 +63,9 @@
 
             <!-- CART -->
 
-            <a href="cart.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="cart.html"
+                class="header-icon icon-with-badge">
 
                 🛒
 
@@ -74,14 +80,37 @@
     </div>
 
 
+    <!-- ===== NAVIGATION ===== -->
+
     <nav class="main-nav">
 
-        <a href="index.html">Home</a>
-        <a href="products.html">All Products</a>
-        <a href="products.html">Electronics</a>
-        <a href="products.html">Fashion</a>
-        <a href="products.html">Home & Living</a>
-        <a href="products.html">Beauty</a>
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            All Products
+        </a>
+
+        <a href="products.html?category=electronics">
+            Electronics
+        </a>
+
+        <a href="products.html?category=fashion">
+            Fashion
+        </a>
+
+        <a href="products.html?category=home">
+            Home & Living
+        </a>
+
+        <a href="products.html?category=beauty">
+            Beauty
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
 
     </nav>
 
@@ -92,15 +121,24 @@
 
 <section class="products">
 
-    <h1>Your Wishlist ❤️</h1>
+    <h1>
+        Your Wishlist ❤️
+    </h1>
 
     <p style="margin-top:10px; color:#666;">
         Products you've saved for later
     </p>
 
-    <div id="wishlist-items" class="product-grid">
 
-        <p>Your wishlist is empty.</p>
+    <!-- WISHLIST PRODUCTS -->
+
+    <div
+        id="wishlist-items"
+        class="product-grid">
+
+        <p>
+            Your wishlist is empty.
+        </p>
 
     </div>
 
@@ -111,7 +149,9 @@
 
 <footer>
 
-    <h3>All For You</h3>
+    <h3>
+        All For You
+    </h3>
 
     <p>
         Quality products at affordable prices.
