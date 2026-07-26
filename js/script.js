@@ -670,3 +670,16 @@ showCheckoutTotal();
 showCheckoutItems();
 
 updateHeaderCounters();
+// LIVE WISHLIST COUNTER FIX
+
+const oldAddToWishlist = addToWishlist;
+
+addToWishlist = function(name) {
+
+    oldAddToWishlist(name);
+
+    wishlist =
+        JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    updateHeaderCounters();
+};
