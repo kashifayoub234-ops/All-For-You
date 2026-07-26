@@ -2647,3 +2647,61 @@ h1,
     }
 
 }
+/* ===== FINAL 3D HEADER LOGO ===== */
+
+.animated-store-logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+.brand-logo-image {
+    display: block;
+    width: 210px;
+    height: 70px;
+    object-fit: contain;
+
+    animation: logo3DFloat 3s ease-in-out infinite;
+
+    filter: drop-shadow(
+        0 5px 7px rgba(255, 153, 0, 0.30)
+    );
+}
+
+@keyframes logo3DFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-4px) rotateY(5deg);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .brand-logo-image {
+        width: 175px;
+        height: 58px;
+    }
+
+    .header-top {
+        width: 100%;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+
+    .brand-logo-image {
+        width: 150px;
+        height: 52px;
+    }
+}
