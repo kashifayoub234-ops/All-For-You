@@ -1375,3 +1375,535 @@ header{
         font-size: 12px;
     }
 }
+/* =========================================
+   ALL FOR YOU - PREMIUM DESIGN UPGRADE
+========================================= */
+
+/* ===== MODERN FONT ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f7f7f8;
+    color: #181818;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+
+/* ===== MAIN HEADINGS ===== */
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.5px;
+}
+
+.products > h1,
+.products > h2,
+.categories > h2 {
+    font-weight: 800;
+    color: #151515;
+}
+
+.products > h1 {
+    font-size: clamp(30px, 4vw, 44px);
+}
+
+.products > h2,
+.categories > h2 {
+    font-size: clamp(27px, 3vw, 36px);
+}
+
+
+/* ===== STORE LOGO ===== */
+
+.store-logo {
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    transition: transform 0.25s ease;
+}
+
+.store-logo:hover {
+    transform: scale(1.03);
+}
+
+.logo-icon {
+    display: inline-block;
+    animation: bagFloat 3s ease-in-out infinite;
+}
+
+@keyframes bagFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+/* ===== HEADER ===== */
+
+.main-header {
+    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+}
+
+.main-nav a {
+    position: relative;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ff9900;
+
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+
+/* ===== SEARCH ===== */
+
+.header-search {
+    transition: transform 0.25s ease;
+}
+
+.header-search:focus-within {
+    transform: scale(1.015);
+}
+
+.header-search input {
+    font-weight: 500;
+}
+
+.header-search button {
+    font-size: 17px;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.header-search button:hover {
+    background: #ffad2f;
+}
+
+.header-search button:active {
+    transform: scale(0.92);
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    overflow: hidden;
+    position: relative;
+}
+
+.hero > div {
+    animation: heroEntrance 0.8s ease-out both;
+}
+
+.hero h1 {
+    font-weight: 900;
+    letter-spacing: -1.8px;
+    line-height: 1.08;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,0.08);
+}
+
+.hero p {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+@keyframes heroEntrance {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===== HERO BUTTON ===== */
+
+.hero button {
+    font-weight: 800;
+    font-size: 15px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.hero button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.25);
+
+    background: #222;
+}
+
+.hero button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   CATEGORY CARDS
+========================================= */
+
+.category-box div {
+    cursor: pointer;
+
+    border: 1px solid rgba(0,0,0,0.04);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: cardEntrance 0.6s ease both;
+}
+
+.category-box div:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(255,153,0,0.35);
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,0.12);
+}
+
+.category-box h3 {
+    margin-top: 8px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   PRODUCT CARDS
+========================================= */
+
+.product-card {
+    border: 1px solid rgba(0,0,0,0.04);
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: cardEntrance 0.6s ease both;
+}
+
+@keyframes cardEntrance {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.product-card:hover {
+    transform: translateY(-9px);
+
+    border-color:
+        rgba(255,153,0,0.25);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.13);
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-card img {
+    transition:
+        transform 0.4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+
+/* PRODUCT NAME */
+
+.product-card h3 {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.product-card h3 a {
+    color: #181818;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.product-card h3 a:hover {
+    color: #e88700;
+}
+
+
+/* PRICE */
+
+.product-card p {
+    font-size: 22px;
+    font-weight: 900;
+    color: #e88900;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.product-card button,
+.product-details-buttons button,
+.place-order-btn,
+.checkout-btn,
+.clear-cart-btn,
+.contact-submit-btn {
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.product-card button:hover,
+.product-details-buttons button:hover,
+.place-order-btn:hover,
+.checkout-btn:hover,
+.contact-submit-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 16px rgba(0,0,0,0.15);
+}
+
+.product-card button:active,
+.product-details-buttons button:active,
+.place-order-btn:active,
+.checkout-btn:active,
+.contact-submit-btn:active {
+
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   SALE BADGE
+========================================= */
+
+.sale {
+    font-weight: 900;
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 4px 12px rgba(255,0,0,0.25);
+
+    animation:
+        salePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes salePulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+
+/* =========================================
+   PRODUCT DETAILS
+========================================= */
+
+.product-details-container {
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.08);
+}
+
+.product-details-info h1 {
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.product-details-price {
+    font-weight: 900;
+    color: #e88900;
+}
+
+.product-category {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CART / CHECKOUT / INFORMATION PAGES
+========================================= */
+
+.cart-container,
+.checkout-container {
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.09);
+}
+
+.cart-container h1,
+.checkout-container h1 {
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.order-summary {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.order-summary:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,0.07);
+}
+
+.order-summary h2 {
+    font-weight: 800;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer-column h3 {
+    font-weight: 800;
+}
+
+.footer-column a {
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-column a:hover {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   COUNTER BADGES
+========================================= */
+
+.counter-badge {
+    font-weight: 900;
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.25);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 34px;
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .product-card:hover,
+    .category-box div:hover {
+        transform: translateY(-4px);
+    }
+
+    .products > h1,
+    .products > h2,
+    .categories > h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   REDUCE ANIMATION IF USER REQUESTS IT
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
