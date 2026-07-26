@@ -7,50 +7,209 @@
 
 <title>Order Confirmed - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
 
-<header>
-    <div class="logo">
-        <h2>All For You 🛍️</h2>
+<!-- ===== MODERN HEADER ===== -->
+
+<header class="main-header">
+
+    <div class="header-top">
+
+        <a href="index.html" class="store-logo">
+            <span class="logo-icon">🛍️</span>
+            <span>All For You</span>
+        </a>
+
+
+        <!-- SEARCH -->
+
+        <div class="header-search">
+
+            <input
+                id="searchBox"
+                type="text"
+                placeholder="Search products..."
+            >
+
+            <button
+                onclick="window.location.href='products.html'"
+                aria-label="Search">
+                🔍
+            </button>
+
+        </div>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+            <a
+                href="wishlist.html"
+                class="header-icon icon-with-badge">
+
+                ❤️
+
+                <b class="wishlist-count counter-badge">
+                    0
+                </b>
+
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="header-icon icon-with-badge">
+
+                🛒
+
+                <b class="cart-count counter-badge">
+                    0
+                </b>
+
+            </a>
+
+        </div>
+
     </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="cart.html">🛒 Cart</a>
+
+    <!-- ===== NAVIGATION ===== -->
+
+    <nav class="main-nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            All Products
+        </a>
+
+        <a href="products.html?category=electronics">
+            Electronics
+        </a>
+
+        <a href="products.html?category=fashion">
+            Fashion
+        </a>
+
+        <a href="products.html?category=home">
+            Home & Living
+        </a>
+
+        <a href="products.html?category=beauty">
+            Beauty
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
     </nav>
+
 </header>
+
+
+<!-- ===== ORDER SUCCESS ===== -->
 
 <section class="checkout-page">
 
-    <div class="checkout-container" style="text-align:center;">
+    <div
+        class="checkout-container"
+        style="text-align:center;">
 
-        <div style="font-size:65px;">✅</div>
+        <div
+            style="
+                font-size:70px;
+                margin-bottom:15px;
+            ">
+            ✅
+        </div>
 
-        <h1>Order Confirmed!</h1>
 
-        <p>
-            Thank you for shopping with All For You.
+        <h1>
+            Order Confirmed!
+        </h1>
+
+
+        <p style="margin-top:15px;">
+
+            Thank you for shopping with
+            <strong>All For You.</strong>
+
         </p>
 
-        <p>
+
+        <p style="margin-top:10px;">
+
             Your order has been received successfully.
+
         </p>
 
-        <br>
 
-        <a href="index.html">
-            <button class="place-order-btn">
-                Continue Shopping
+        <p
+            style="
+                margin-top:15px;
+                color:#666;
+            ">
+
+            We'll keep you updated about your order.
+
+        </p>
+
+
+        <a
+            href="products.html"
+            style="text-decoration:none;">
+
+            <button
+                type="button"
+                class="place-order-btn">
+
+                Continue Shopping 🛍️
+
             </button>
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="continue-shopping">
+
+            ← Back to Home
+
         </a>
 
     </div>
 
 </section>
+
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+    <h3>
+        All For You
+    </h3>
+
+    <p>
+        Quality products at affordable prices.
+    </p>
+
+    <p>
+        © 2026 All For You. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="js/script.js?v=15"></script>
 
 </body>
 </html>
