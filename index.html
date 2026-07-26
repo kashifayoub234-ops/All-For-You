@@ -8,281 +8,247 @@
 
 <title>All For You - Online Store</title>
 
-<link rel="stylesheet" href="css/style.css?=v6">
+<link rel="stylesheet" href="css/style.css?v=8">
 
 </head>
-
 
 <body>
 
 
-<header>
+<!-- ===== MODERN HEADER ===== -->
 
-<div class="logo">
-<h2>All For You 🛍️</h2>
-</div>
+<header class="main-header">
 
+    <div class="header-top">
 
-<nav>
-
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="wishlist.html">❤️</a>
-<a href="cart.html">🛒 Cart</a>
-
-</nav>
+        <a href="index.html" class="store-logo">
+            <span class="logo-icon">🛍️</span>
+            <span>All For You</span>
+        </a>
 
 
-<div class="search">
+        <div class="header-search">
 
-<input id="searchBox" type="text" placeholder="Search products...">
+            <input
+                id="searchBox"
+                type="text"
+                placeholder="Search products..."
+                onkeyup="searchProduct()"
+            >
 
-<button onclick="searchProduct()">
-🔍
-</button>
+            <button onclick="searchProduct()" aria-label="Search">
+                🔍
+            </button>
 
-</div>
+        </div>
 
+
+        <div class="header-actions">
+
+            <a href="wishlist.html" class="header-icon">
+                ❤️
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="header-icon">
+                🛒
+                <span>Cart</span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="products.html">All Products</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Home & Living</a>
+        <a href="products.html">Beauty</a>
+
+    </nav>
 
 </header>
 
 
 
+<!-- ===== HERO ===== -->
 
 <section class="hero">
 
-<div>
+    <div>
 
-<h1>
-Everything You Need,
-All In One Place
-</h1>
+        <h1>
+            Everything You Need,<br>
+            All In One Place
+        </h1>
 
+        <p>
+            Quality Products • Best Prices • Fast Delivery
+        </p>
 
-<p>
-Quality Products • Best Prices • Fast Delivery
-</p>
+        <button onclick="window.location.href='products.html'">
+            Shop Now
+        </button>
 
-
-<button>
-Shop Now
-</button>
-
-</div>
-
+    </div>
 
 </section>
 
 
 
-
+<!-- ===== CATEGORIES ===== -->
 
 <section class="categories">
 
-<h2>
-Shop By Category
-</h2>
+    <h2>Shop By Category</h2>
 
+    <div class="category-box">
 
-<div class="category-box">
+        <div>
+            📱
+            <h3>Electronics</h3>
+        </div>
 
+        <div>
+            👕
+            <h3>Fashion</h3>
+        </div>
 
-<div>
-📱
-<h3>Electronics</h3>
-</div>
+        <div>
+            🏠
+            <h3>Home</h3>
+        </div>
 
+        <div>
+            💄
+            <h3>Beauty</h3>
+        </div>
 
-<div>
-👕
-<h3>Fashion</h3>
-</div>
+        <div>
+            🧸
+            <h3>Toys</h3>
+        </div>
 
+        <div>
+            🚗
+            <h3>Accessories</h3>
+        </div>
 
-<div>
-🏠
-<h3>Home</h3>
-</div>
-
-
-<div>
-💄
-<h3>Beauty</h3>
-</div>
-
-
-<div>
-🧸
-<h3>Toys</h3>
-</div>
-
-
-<div>
-🚗
-<h3>Accessories</h3>
-</div>
-
-
-</div>
-
+    </div>
 
 </section>
 
 
 
-
-
+<!-- ===== FEATURED PRODUCTS ===== -->
 
 <section class="products">
 
+    <h2>Featured Products</h2>
 
-<h2>
-Featured Products
-</h2>
-
+    <div class="product-grid">
 
 
-<div class="product-grid">
+        <!-- SMART WATCH -->
 
+        <div class="product-card">
 
+            <span class="sale">SALE</span>
 
-<div class="product-card">
+            <img
+                src="./IMG_9535.jpeg"
+                alt="Smart Watch"
+            >
 
-<span class="sale">
-SALE
-</span>
+            <h3>Smart Watch</h3>
 
-<img src="IMG_9535.jpeg">
+            <div>⭐⭐⭐⭐⭐</div>
 
+            <p>£39.99</p>
 
-<h3>
-Smart Watch
-</h3>
+            <button onclick="addToCart('Smart Watch',39.99)">
+                Add To Cart 🛒
+            </button>
 
-
-<div>
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-£39.99
-</p>
-
-
-<button onclick="addToCart('Smart Watch',39.99)">
-Add To Cart 🛒
-</button>
-
-
-</div>
+        </div>
 
 
 
+        <!-- WIRELESS EARBUDS -->
+
+        <div class="product-card">
+
+            <span class="sale">SALE</span>
+
+            <img
+                src="./IMG_9536.webp"
+                alt="Wireless Earbuds"
+            >
+
+            <h3>Wireless Earbuds</h3>
+
+            <div>⭐⭐⭐⭐⭐</div>
+
+            <p>£24.99</p>
+
+            <button onclick="addToCart('Wireless Earbuds',24.99)">
+                Add To Cart 🛒
+            </button>
+
+        </div>
 
 
 
-<div class="product-card">
+        <!-- HOME GADGET -->
 
-<span class="sale">
-SALE
-</span>
+        <div class="product-card">
 
+            <img
+                src="./IMG_9537.jpeg"
+                alt="Home Gadget"
+            >
 
-<img src="IMG_9536.webp">
+            <h3>Home Gadget</h3>
 
+            <div>⭐⭐⭐⭐</div>
 
-<h3>
-Wireless Earbuds
-</h3>
+            <p>£29.99</p>
 
+            <button onclick="addToCart('Home Gadget',29.99)">
+                Add To Cart 🛒
+            </button>
 
-<div>
-⭐⭐⭐⭐⭐
-</div>
-
-
-<p>
-£24.99
-</p>
+        </div>
 
 
-<button onclick="addToCart('Wireless Earbuds',24.99)">
-Add To Cart 🛒
-</button>
-
-
-</div>
-
-
-
-
-
-
-<div class="product-card">
-
-
-<img src="IMG_9537.jpeg">
-
-
-<h3>
-Home Gadget
-</h3>
-
-
-<div>
-⭐⭐⭐⭐
-</div>
-
-
-<p>
-£29.99
-</p>
-
-
-<button onclick="addToCart('Home Gadget',29.99)">
-Add To Cart 🛒
-</button>
-
-
-</div>
-
-
-
-
-</div>
-
+    </div>
 
 </section>
 
 
 
-
+<!-- ===== FOOTER ===== -->
 
 <footer>
 
+    <h3>All For You</h3>
 
-<h3>
-All For You
-</h3>
+    <p>
+        Quality products at affordable prices.
+    </p>
 
-
-<p>
-Quality products at affordable prices.
-</p>
-
-
-<p>
-© 2026 All For You. All Rights Reserved.
-</p>
-
+    <p>
+        © 2026 All For You. All Rights Reserved.
+    </p>
 
 </footer>
 
 
-
-<script src="js/script.js"></script>
-
+<script src="js/script.js?v=10"></script>
 
 </body>
 
