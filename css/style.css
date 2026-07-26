@@ -2336,3 +2336,109 @@ h1,
         box-shadow 0.3s ease,
         transform 0.3s ease;
 }
+/* =========================================
+   ALL FOR YOU - PREMIUM HERO BANNER
+========================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 520px;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.12)
+        ),
+        url("../hero-banner.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* Hide old hero text because banner has branding/text */
+
+.hero > div {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+
+/* Hide duplicate heading and paragraph */
+
+.hero h1,
+.hero p {
+    display: none;
+}
+
+
+/* REAL CLICKABLE SHOP NOW BUTTON */
+
+.hero button {
+    position: absolute;
+
+    top: 170px;
+
+    padding: 15px 34px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #ff8a00;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(255, 138, 0, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.hero button:hover {
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 12px 30px rgba(255, 138, 0, 0.5);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 360px;
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero button {
+        top: 215px;
+
+        padding: 12px 25px;
+
+        font-size: 14px;
+    }
+}
