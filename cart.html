@@ -7,7 +7,7 @@
 
 <title>Shopping Cart - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
@@ -22,6 +22,8 @@
             <span class="logo-icon">🛍️</span>
             <span>All For You</span>
         </a>
+
+        <!-- SEARCH -->
 
         <div class="header-search">
 
@@ -40,12 +42,15 @@
         </div>
 
 
+        <!-- HEADER ACTIONS -->
+
         <div class="header-actions">
 
             <!-- WISHLIST -->
 
-            <a href="wishlist.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="wishlist.html"
+                class="header-icon icon-with-badge">
 
                 ❤️
 
@@ -58,8 +63,9 @@
 
             <!-- CART -->
 
-            <a href="cart.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="cart.html"
+                class="header-icon icon-with-badge">
 
                 🛒
 
@@ -74,14 +80,37 @@
     </div>
 
 
+    <!-- ===== NAVIGATION ===== -->
+
     <nav class="main-nav">
 
-        <a href="index.html">Home</a>
-        <a href="products.html">All Products</a>
-        <a href="products.html">Electronics</a>
-        <a href="products.html">Fashion</a>
-        <a href="products.html">Home & Living</a>
-        <a href="products.html">Beauty</a>
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            All Products
+        </a>
+
+        <a href="products.html?category=electronics">
+            Electronics
+        </a>
+
+        <a href="products.html?category=fashion">
+            Fashion
+        </a>
+
+        <a href="products.html?category=home">
+            Home & Living
+        </a>
+
+        <a href="products.html?category=beauty">
+            Beauty
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
 
     </nav>
 
@@ -94,17 +123,27 @@
 
     <div class="cart-container">
 
-        <h1>🛒 Your Shopping Cart</h1>
+        <h1>
+            🛒 Your Shopping Cart
+        </h1>
 
         <p class="cart-subtitle">
             Review your items before checkout
         </p>
 
 
+        <!-- CART PRODUCTS -->
+
         <div id="cart-items">
-            <p>Your cart is empty.</p>
+
+            <p>
+                Your cart is empty.
+            </p>
+
         </div>
 
+
+        <!-- CART SUMMARY -->
 
         <div class="cart-summary">
 
@@ -116,21 +155,27 @@
             <button
                 class="checkout-btn"
                 onclick="window.location.href='checkout.html'">
+
                 Proceed to Checkout
+
             </button>
 
 
             <button
                 class="clear-cart-btn"
                 onclick="clearCart()">
+
                 Clear Cart
+
             </button>
 
 
             <a
                 class="continue-shopping"
                 href="products.html">
+
                 ← Continue Shopping
+
             </a>
 
         </div>
@@ -144,7 +189,9 @@
 
 <footer>
 
-    <h3>All For You</h3>
+    <h3>
+        All For You
+    </h3>
 
     <p>
         Quality products at affordable prices.
