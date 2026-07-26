@@ -19,8 +19,6 @@ const products = {
     }
 };
 
-
-// Keep compatibility with existing cart code
 const productImages = {
     "Smart Watch": "./IMG_9535.jpeg",
     "Wireless Earbuds": "./IMG_9536.webp",
@@ -42,6 +40,7 @@ function saveCart() {
         "cart",
         JSON.stringify(cart)
     );
+
 }
 
 
@@ -65,23 +64,22 @@ function addToCart(name, price) {
     } else {
 
         cart.push({
-
             name: name,
-
             price: productPrice,
-
             image:
                 products[name]?.image ||
                 productImages[name] ||
                 "",
-
             quantity: 1
-
         });
+
     }
 
 
     saveCart();
+
+    // LIVE COUNTER UPDATE
+    updateHeaderCounters();
 
     alert(name + " added to cart 🛒");
 }
@@ -109,6 +107,8 @@ function showCart() {
             totalBox.innerHTML =
                 "Total: £0.00";
         }
+
+        updateHeaderCounters();
 
         return;
     }
@@ -164,11 +164,9 @@ function showCart() {
                     £${price.toFixed(2)}
                 </p>
 
-
                 <div class="quantity-controls">
 
-                    <button
-                        onclick="decreaseQuantity(${index})">
+                    <button onclick="decreaseQuantity(${index})">
                         −
                     </button>
 
@@ -176,16 +174,13 @@ function showCart() {
                         ${item.quantity}
                     </span>
 
-                    <button
-                        onclick="increaseQuantity(${index})">
+                    <button onclick="increaseQuantity(${index})">
                         +
                     </button>
 
                 </div>
 
-
-                <button
-                    onclick="removeItem(${index})">
+                <button onclick="removeItem(${index})">
                     Remove
                 </button>
 
@@ -207,6 +202,9 @@ function showCart() {
             total.toFixed(2);
 
     }
+
+
+    updateHeaderCounters();
 }
 
 
@@ -219,6 +217,8 @@ function increaseQuantity(index) {
     saveCart();
 
     showCart();
+
+    updateHeaderCounters();
 }
 
 
@@ -239,6 +239,8 @@ function decreaseQuantity(index) {
     saveCart();
 
     showCart();
+
+    updateHeaderCounters();
 }
 
 
@@ -250,6 +252,8 @@ function removeItem(index) {
     saveCart();
 
     showCart();
+
+    updateHeaderCounters();
 }
 
 
@@ -261,6 +265,8 @@ function clearCart() {
     localStorage.removeItem("cart");
 
     showCart();
+
+    updateHeaderCounters();
 }
 
 
@@ -324,6 +330,9 @@ function addToWishlist(name) {
             JSON.stringify(wishlist)
         );
 
+        // LIVE COUNTER UPDATE
+        updateHeaderCounters();
+
         alert(
             name +
             " added to wishlist ❤️"
@@ -335,6 +344,7 @@ function addToWishlist(name) {
             name +
             " is already in your wishlist ❤️"
         );
+
     }
 }
 
@@ -355,6 +365,8 @@ function showWishlist() {
 
         box.innerHTML =
             "<p>Your wishlist is empty.</p>";
+
+        updateHeaderCounters();
 
         return;
     }
@@ -399,6 +411,9 @@ function showWishlist() {
 
         `;
     });
+
+
+    updateHeaderCounters();
 }
 
 
@@ -428,6 +443,49 @@ function removeFromWishlist(index) {
     );
 
     showWishlist();
+
+    updateHeaderCounters();
+}
+
+
+
+// =========================
+// HEADER COUNTERS
+// =========================
+
+function updateHeaderCounters() {
+
+    let cartCount =
+        cart.reduce((total, item) => {
+
+            return total +
+                (item.quantity || 1);
+
+        }, 0);
+
+
+    let wishlistCount =
+        wishlist.length;
+
+
+    document
+        .querySelectorAll(".cart-count")
+        .forEach(counter => {
+
+            counter.textContent =
+                cartCount;
+
+        });
+
+
+    document
+        .querySelectorAll(".wishlist-count")
+        .forEach(counter => {
+
+            counter.textContent =
+                wishlistCount;
+
+        });
 }
 
 
@@ -587,6 +645,8 @@ if (checkoutForm) {
                 "cart"
             );
 
+            updateHeaderCounters();
+
 
             window.location.href =
                 "success.html";
@@ -608,28 +668,5 @@ showWishlist();
 showCheckoutTotal();
 
 showCheckoutItems();
-// =========================
-// CART + WISHLIST COUNTERS
-// =========================
-
-function updateHeaderCounters() {
-
-    // Total cart quantity
-    let cartCount = cart.reduce((total, item) => {
-        return total + (item.quantity || 1);
-    }, 0);
-
-    // Wishlist total
-    let wishlistCount = wishlist.length;
-
-    // Update all counters on page
-    document.querySelectorAll(".cart-count").forEach(counter => {
-        counter.textContent = cartCount;
-    });
-
-    document.querySelectorAll(".wishlist-count").forEach(counter => {
-        counter.textContent = wishlistCount;
-    });
-}
 
 updateHeaderCounters();
