@@ -2464,3 +2464,107 @@ h1,
 
     border-radius: 8px;
 }
+/* ===== HERO TEXT EXACT CENTER ===== */
+
+.hero {
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.hero > div {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto !important;
+    padding: 25px 20px;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+}
+
+.hero h1 {
+    display: block !important;
+    position: static !important;
+
+    width: 100%;
+    margin: 0 0 15px !important;
+
+    text-align: center !important;
+    font-size: 45px;
+    line-height: 1.1;
+    font-weight: 900;
+    color: #111;
+}
+
+.hero p {
+    display: block !important;
+    position: static !important;
+
+    width: 100%;
+    margin: 0 0 22px !important;
+
+    text-align: center !important;
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+}
+
+.hero button {
+    position: static !important;
+    display: block !important;
+
+    margin: 0 auto !important;
+    padding: 14px 32px;
+
+    background: #ff8a00;
+    color: #fff;
+
+    border: none;
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 360px;
+        padding: 20px 15px !important;
+    }
+
+    .hero > div {
+        width: 100%;
+        padding: 10px !important;
+        margin: auto !important;
+    }
+
+    .hero h1 {
+        font-size: 32px !important;
+        line-height: 1.1 !important;
+        text-align: center !important;
+        margin-bottom: 14px !important;
+    }
+
+    .hero p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+        margin-bottom: 18px !important;
+    }
+
+    .hero button {
+        position: static !important;
+        margin: 0 auto !important;
+        padding: 12px 27px;
+    }
+}
