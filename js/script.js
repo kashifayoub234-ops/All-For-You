@@ -7,12 +7,10 @@ const products = {
         price: 39.99,
         image: "./IMG_9535.jpeg"
     },
-
     "Wireless Earbuds": {
         price: 24.99,
         image: "./IMG_9536.webp"
     },
-
     "Home Gadget": {
         price: 29.99,
         image: "./IMG_9537.jpeg"
@@ -27,12 +25,38 @@ const productImages = {
 
 
 // =========================
-// CART
+// CART + WISHLIST DATA
 // =========================
 
-let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
+
+// =========================
+// HEADER COUNTERS
+// =========================
+
+function updateHeaderCounters() {
+
+    let cartCount = cart.reduce((total, item) => {
+        return total + (Number(item.quantity) || 1);
+    }, 0);
+
+    let wishlistCount = wishlist.length;
+
+    document.querySelectorAll(".cart-count").forEach(counter => {
+        counter.textContent = cartCount;
+    });
+
+    document.querySelectorAll(".wishlist-count").forEach(counter => {
+        counter.textContent = wishlistCount;
+    });
+}
+
+
+// =========================
+// SAVE CART
+// =========================
 
 function saveCart() {
 
@@ -41,10 +65,14 @@ function saveCart() {
         JSON.stringify(cart)
     );
 
+    updateHeaderCounters();
 }
 
 
+// =========================
 // ADD TO CART
+// =========================
+
 function addToCart(name, price) {
 
     let productPrice =
@@ -55,48 +83,37 @@ function addToCart(name, price) {
     let existingProduct =
         cart.find(item => item.name === name);
 
-
     if (existingProduct) {
 
         existingProduct.quantity =
-            (existingProduct.quantity || 1) + 1;
+            (Number(existingProduct.quantity) || 1) + 1;
 
     } else {
 
         cart.push({
             name: name,
             price: productPrice,
-            image:
-                products[name]?.image ||
-                productImages[name] ||
-                "",
+            image: products[name]?.image || "",
             quantity: 1
         });
-
     }
 
-
     saveCart();
-
-    // LIVE COUNTER UPDATE
-    updateHeaderCounters();
 
     alert(name + " added to cart 🛒");
 }
 
 
+// =========================
 // SHOW CART
+// =========================
+
 function showCart() {
 
-    let cartBox =
-        document.getElementById("cart-items");
-
-    let totalBox =
-        document.getElementById("total");
-
+    let cartBox = document.getElementById("cart-items");
+    let totalBox = document.getElementById("total");
 
     if (!cartBox) return;
-
 
     if (cart.length === 0) {
 
@@ -104,41 +121,31 @@ function showCart() {
             "<p>Your cart is empty.</p>";
 
         if (totalBox) {
-            totalBox.innerHTML =
-                "Total: £0.00";
+            totalBox.innerHTML = "Total: £0.00";
         }
 
         updateHeaderCounters();
-
         return;
     }
-
 
     let total = 0;
 
     cartBox.innerHTML = "";
 
-
     cart.forEach((item, index) => {
 
-        if (!item.quantity) {
-            item.quantity = 1;
-        }
-
+        item.quantity =
+            Number(item.quantity) || 1;
 
         let price =
             Number(item.price) || 0;
 
-
-        total +=
-            price * item.quantity;
-
+        total += price * item.quantity;
 
         let image =
             item.image ||
             products[item.name]?.image ||
             "";
-
 
         cartBox.innerHTML += `
 
@@ -160,9 +167,7 @@ function showCart() {
 
                 <h3>${item.name}</h3>
 
-                <p>
-                    £${price.toFixed(2)}
-                </p>
+                <p>£${price.toFixed(2)}</p>
 
                 <div class="quantity-controls">
 
@@ -170,9 +175,7 @@ function showCart() {
                         −
                     </button>
 
-                    <span>
-                        ${item.quantity}
-                    </span>
+                    <span>${item.quantity}</span>
 
                     <button onclick="increaseQuantity(${index})">
                         +
@@ -187,88 +190,68 @@ function showCart() {
             </div>
 
         </div>
-
         `;
     });
 
-
     saveCart();
 
-
     if (totalBox) {
-
         totalBox.innerHTML =
-            "Total: £" +
-            total.toFixed(2);
-
+            "Total: £" + total.toFixed(2);
     }
-
-
-    updateHeaderCounters();
 }
 
 
-// INCREASE QUANTITY
+// =========================
+// CART QUANTITY
+// =========================
+
 function increaseQuantity(index) {
 
     cart[index].quantity =
-        (cart[index].quantity || 1) + 1;
+        (Number(cart[index].quantity) || 1) + 1;
 
     saveCart();
-
     showCart();
-
-    updateHeaderCounters();
 }
 
 
-// DECREASE QUANTITY
 function decreaseQuantity(index) {
 
     let quantity =
-        cart[index].quantity || 1;
-
+        Number(cart[index].quantity) || 1;
 
     if (quantity > 1) {
-
-        cart[index].quantity =
-            quantity - 1;
-
+        cart[index].quantity = quantity - 1;
     }
 
     saveCart();
-
     showCart();
-
-    updateHeaderCounters();
 }
 
 
-// REMOVE CART ITEM
+// =========================
+// REMOVE / CLEAR CART
+// =========================
+
 function removeItem(index) {
 
     cart.splice(index, 1);
 
     saveCart();
-
     showCart();
-
-    updateHeaderCounters();
 }
 
 
-// CLEAR CART
 function clearCart() {
 
     cart = [];
 
     localStorage.removeItem("cart");
 
-    showCart();
-
     updateHeaderCounters();
+    showCart();
 }
-
 
 
 // =========================
@@ -280,46 +263,36 @@ function searchProduct() {
     let searchBox =
         document.getElementById("searchBox");
 
-
     if (!searchBox) return;
 
-
     let input =
-        searchBox.value.toLowerCase();
-
+        searchBox.value.toLowerCase().trim();
 
     let productCards =
         document.querySelectorAll(".product-card");
-
 
     productCards.forEach(product => {
 
         let text =
             product.innerText.toLowerCase();
 
-
         product.style.display =
             text.includes(input)
                 ? "block"
                 : "none";
-
     });
 }
 
 
-
 // =========================
-// WISHLIST
-// =========================
-
-let wishlist =
-    JSON.parse(
-        localStorage.getItem("wishlist")
-    ) || [];
-
-
 // ADD TO WISHLIST
+// =========================
+
 function addToWishlist(name) {
+
+    // Fresh copy from storage
+    wishlist =
+        JSON.parse(localStorage.getItem("wishlist")) || [];
 
     if (!wishlist.includes(name)) {
 
@@ -330,36 +303,33 @@ function addToWishlist(name) {
             JSON.stringify(wishlist)
         );
 
-        // LIVE COUNTER UPDATE
+        // UPDATE IMMEDIATELY
         updateHeaderCounters();
 
-        alert(
-            name +
-            " added to wishlist ❤️"
-        );
+        alert(name + " added to wishlist ❤️");
 
     } else {
 
-        alert(
-            name +
-            " is already in your wishlist ❤️"
-        );
+        updateHeaderCounters();
 
+        alert(name + " is already in your wishlist ❤️");
     }
 }
 
 
+// =========================
 // SHOW WISHLIST
+// =========================
+
 function showWishlist() {
 
     let box =
-        document.getElementById(
-            "wishlist-items"
-        );
-
+        document.getElementById("wishlist-items");
 
     if (!box) return;
 
+    wishlist =
+        JSON.parse(localStorage.getItem("wishlist")) || [];
 
     if (wishlist.length === 0) {
 
@@ -367,20 +337,16 @@ function showWishlist() {
             "<p>Your wishlist is empty.</p>";
 
         updateHeaderCounters();
-
         return;
     }
 
-
     box.innerHTML = "";
-
 
     wishlist.forEach((name, index) => {
 
         let product = products[name];
 
         if (!product) return;
-
 
         box.innerHTML += `
 
@@ -397,43 +363,44 @@ function showWishlist() {
                 £${product.price.toFixed(2)}
             </p>
 
-            <button
-                onclick="addWishlistItemToCart('${name}')">
+            <button onclick="addWishlistItemToCart('${name}')">
                 Add To Cart 🛒
             </button>
 
-            <button
-                onclick="removeFromWishlist(${index})">
+            <button onclick="removeFromWishlist(${index})">
                 Remove ❤️
             </button>
 
         </div>
-
         `;
     });
-
 
     updateHeaderCounters();
 }
 
 
-// WISHLIST → CART
+// =========================
+// WISHLIST TO CART
+// =========================
+
 function addWishlistItemToCart(name) {
 
     let product = products[name];
 
     if (!product) return;
 
-
-    addToCart(
-        name,
-        product.price
-    );
+    addToCart(name, product.price);
 }
 
 
+// =========================
 // REMOVE FROM WISHLIST
+// =========================
+
 function removeFromWishlist(index) {
+
+    wishlist =
+        JSON.parse(localStorage.getItem("wishlist")) || [];
 
     wishlist.splice(index, 1);
 
@@ -442,52 +409,9 @@ function removeFromWishlist(index) {
         JSON.stringify(wishlist)
     );
 
-    showWishlist();
-
     updateHeaderCounters();
+    showWishlist();
 }
-
-
-
-// =========================
-// HEADER COUNTERS
-// =========================
-
-function updateHeaderCounters() {
-
-    let cartCount =
-        cart.reduce((total, item) => {
-
-            return total +
-                (item.quantity || 1);
-
-        }, 0);
-
-
-    let wishlistCount =
-        wishlist.length;
-
-
-    document
-        .querySelectorAll(".cart-count")
-        .forEach(counter => {
-
-            counter.textContent =
-                cartCount;
-
-        });
-
-
-    document
-        .querySelectorAll(".wishlist-count")
-        .forEach(counter => {
-
-            counter.textContent =
-                wishlistCount;
-
-        });
-}
-
 
 
 // =========================
@@ -497,16 +421,11 @@ function updateHeaderCounters() {
 function showCheckoutTotal() {
 
     let checkoutTotal =
-        document.getElementById(
-            "checkout-total"
-        );
-
+        document.getElementById("checkout-total");
 
     if (!checkoutTotal) return;
 
-
     let total = 0;
-
 
     cart.forEach(item => {
 
@@ -514,20 +433,14 @@ function showCheckoutTotal() {
             Number(item.price) || 0;
 
         let quantity =
-            item.quantity || 1;
+            Number(item.quantity) || 1;
 
-
-        total +=
-            price * quantity;
-
+        total += price * quantity;
     });
 
-
     checkoutTotal.innerHTML =
-        "Total: £" +
-        total.toFixed(2);
+        "Total: £" + total.toFixed(2);
 }
-
 
 
 // =========================
@@ -537,13 +450,9 @@ function showCheckoutTotal() {
 function showCheckoutItems() {
 
     let checkoutItems =
-        document.getElementById(
-            "checkout-items"
-        );
-
+        document.getElementById("checkout-items");
 
     if (!checkoutItems) return;
-
 
     if (cart.length === 0) {
 
@@ -553,14 +462,12 @@ function showCheckoutItems() {
         return;
     }
 
-
     checkoutItems.innerHTML = "";
-
 
     cart.forEach(item => {
 
         let quantity =
-            item.quantity || 1;
+            Number(item.quantity) || 1;
 
         let price =
             Number(item.price) || 0;
@@ -569,7 +476,6 @@ function showCheckoutItems() {
             item.image ||
             products[item.name]?.image ||
             "";
-
 
         checkoutItems.innerHTML += `
 
@@ -588,13 +494,9 @@ function showCheckoutItems() {
 
             <div>
 
-                <h3>
-                    ${item.name}
-                </h3>
+                <h3>${item.name}</h3>
 
-                <p>
-                    Quantity: ${quantity}
-                </p>
+                <p>Quantity: ${quantity}</p>
 
                 <p>
                     £${(price * quantity).toFixed(2)}
@@ -603,11 +505,9 @@ function showCheckoutItems() {
             </div>
 
         </div>
-
         `;
     });
 }
-
 
 
 // =========================
@@ -615,10 +515,7 @@ function showCheckoutItems() {
 // =========================
 
 const checkoutForm =
-    document.getElementById(
-        "checkout-form"
-    );
-
+    document.getElementById("checkout-form");
 
 if (checkoutForm) {
 
@@ -628,38 +525,30 @@ if (checkoutForm) {
 
             event.preventDefault();
 
-
             if (cart.length === 0) {
 
-                alert(
-                    "Your cart is empty."
-                );
-
+                alert("Your cart is empty.");
                 return;
             }
 
-
             cart = [];
 
-            localStorage.removeItem(
-                "cart"
-            );
+            localStorage.removeItem("cart");
 
             updateHeaderCounters();
 
-
             window.location.href =
                 "success.html";
-
         }
     );
 }
 
 
-
 // =========================
 // START WEBSITE
 // =========================
+
+updateHeaderCounters();
 
 showCart();
 
@@ -668,18 +557,3 @@ showWishlist();
 showCheckoutTotal();
 
 showCheckoutItems();
-
-updateHeaderCounters();
-// LIVE WISHLIST COUNTER FIX
-
-const oldAddToWishlist = addToWishlist;
-
-addToWishlist = function(name) {
-
-    oldAddToWishlist(name);
-
-    wishlist =
-        JSON.parse(localStorage.getItem("wishlist")) || [];
-
-    updateHeaderCounters();
-};
