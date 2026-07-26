@@ -7,83 +7,128 @@
 
 <title>Shopping Cart - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=8">
 </head>
 
 <body>
 
-<header>
+<!-- ===== MODERN HEADER ===== -->
 
-<div class="logo">
-<h2>All For You 🛍️</h2>
-</div>
+<header class="main-header">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="products.html">Products</a>
-<a href="wishlist.html">❤️ Wishlist</a>
-<a href="cart.html">🛒 Cart</a>
-</nav>
+    <div class="header-top">
+
+        <a href="index.html" class="store-logo">
+            <span class="logo-icon">🛍️</span>
+            <span>All For You</span>
+        </a>
+
+        <div class="header-search">
+
+            <input
+                id="searchBox"
+                type="text"
+                placeholder="Search products..."
+            >
+
+            <button onclick="window.location.href='products.html'">
+                🔍
+            </button>
+
+        </div>
+
+        <div class="header-actions">
+
+            <a href="wishlist.html" class="header-icon">
+                ❤️
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="header-icon">
+                🛒
+                <span>Cart</span>
+            </a>
+
+        </div>
+
+    </div>
+
+    <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="products.html">All Products</a>
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Home & Living</a>
+        <a href="products.html">Beauty</a>
+
+    </nav>
 
 </header>
 
 
+<!-- ===== CART ===== -->
+
 <section class="cart-page">
 
-<div class="cart-container">
+    <div class="cart-container">
 
-<h1>🛒 Your Shopping Cart</h1>
+        <h1>🛒 Your Shopping Cart</h1>
 
-<p class="cart-subtitle">
-Review your items before checkout
-</p>
+        <p class="cart-subtitle">
+            Review your items before checkout
+        </p>
 
-
-<div id="cart-items">
-
-<p>Your cart is empty.</p>
-
-</div>
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
 
 
-<div class="cart-summary">
+        <div class="cart-summary">
 
-<h2 id="total">
-Total: £0.00
-</h2>
+            <h2 id="total">
+                Total: £0.00
+            </h2>
 
-<button class="checkout-btn" onclick="window.location.href='checkout.html'">
-Proceed to Checkout
-</button>
+            <button
+                class="checkout-btn"
+                onclick="window.location.href='checkout.html'">
+                Proceed to Checkout
+            </button>
 
-<button class="clear-cart-btn" onclick="clearCart()">
-Clear Cart
-</button>
+            <button
+                class="clear-cart-btn"
+                onclick="clearCart()">
+                Clear Cart
+            </button>
 
-<a class="continue-shopping" href="products.html">
-← Continue Shopping
-</a>
+            <a
+                class="continue-shopping"
+                href="products.html">
+                ← Continue Shopping
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
+<!-- ===== FOOTER ===== -->
+
 <footer>
 
-<h3>All For You</h3>
+    <h3>All For You</h3>
 
-<p>Quality products at affordable prices.</p>
+    <p>Quality products at affordable prices.</p>
 
-<p>© 2026 All For You. All Rights Reserved.</p>
+    <p>© 2026 All For You. All Rights Reserved.</p>
 
 </footer>
 
 
-<script src="js/script.js?v=5"></script>
+<script src="js/script.js?v=10"></script>
 
 </body>
-
 </html>
