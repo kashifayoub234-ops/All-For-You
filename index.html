@@ -2,18 +2,15 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>All For You - Online Store</title>
 
 <link rel="stylesheet" href="css/style.css?v=12">
-
 </head>
 
 <body>
-
 
 <!-- ===== MODERN HEADER ===== -->
 
@@ -26,9 +23,6 @@
             <span>All For You</span>
         </a>
 
-
-        <!-- SEARCH -->
-
         <div class="header-search">
 
             <input
@@ -38,46 +32,24 @@
                 onkeyup="searchProduct()"
             >
 
-            <button
-                onclick="searchProduct()"
-                aria-label="Search">
+            <button onclick="searchProduct()" aria-label="Search">
                 🔍
             </button>
 
         </div>
 
-
-        <!-- HEADER ICONS -->
-
         <div class="header-actions">
 
-            <!-- WISHLIST -->
-
-            <a
-                href="wishlist.html"
-                class="header-icon icon-with-badge">
-
+            <a href="wishlist.html"
+               class="header-icon icon-with-badge">
                 ❤️
-
-                <b class="wishlist-count counter-badge">
-                    0
-                </b>
-
+                <b class="wishlist-count counter-badge">0</b>
             </a>
 
-
-            <!-- CART -->
-
-            <a
-                href="cart.html"
-                class="header-icon icon-with-badge">
-
+            <a href="cart.html"
+               class="header-icon icon-with-badge">
                 🛒
-
-                <b class="cart-count counter-badge">
-                    0
-                </b>
-
+                <b class="cart-count counter-badge">0</b>
             </a>
 
         </div>
@@ -89,9 +61,7 @@
 
     <nav class="main-nav">
 
-        <a href="index.html">
-            Home
-        </a>
+        <a href="index.html">Home</a>
 
         <a href="products.html">
             All Products
@@ -122,7 +92,6 @@
 </header>
 
 
-
 <!-- ===== HERO ===== -->
 
 <section class="hero">
@@ -138,8 +107,7 @@
             Quality Products • Best Prices • Fast Delivery
         </p>
 
-        <button
-            onclick="window.location.href='products.html'">
+        <button onclick="window.location.href='products.html'">
             Shop Now
         </button>
 
@@ -148,104 +116,65 @@
 </section>
 
 
-
 <!-- ===== CATEGORIES ===== -->
 
 <section class="categories">
 
-    <h2>
-        Shop By Category
-    </h2>
+    <h2>Shop By Category</h2>
 
     <div class="category-box">
-
-
-        <!-- ELECTRONICS -->
 
         <div
             onclick="window.location.href='products.html?category=electronics'"
             style="cursor:pointer;">
 
             📱
-
-            <h3>
-                Electronics
-            </h3>
+            <h3>Electronics</h3>
 
         </div>
-
-
-        <!-- FASHION -->
 
         <div
             onclick="window.location.href='products.html?category=fashion'"
             style="cursor:pointer;">
 
             👕
-
-            <h3>
-                Fashion
-            </h3>
+            <h3>Fashion</h3>
 
         </div>
-
-
-        <!-- HOME -->
 
         <div
             onclick="window.location.href='products.html?category=home'"
             style="cursor:pointer;">
 
             🏠
-
-            <h3>
-                Home & Living
-            </h3>
+            <h3>Home & Living</h3>
 
         </div>
-
-
-        <!-- BEAUTY -->
 
         <div
             onclick="window.location.href='products.html?category=beauty'"
             style="cursor:pointer;">
 
             💄
-
-            <h3>
-                Beauty
-            </h3>
+            <h3>Beauty</h3>
 
         </div>
-
-
-        <!-- TOYS -->
 
         <div
             onclick="window.location.href='products.html?category=toys'"
             style="cursor:pointer;">
 
             🧸
-
-            <h3>
-                Toys
-            </h3>
+            <h3>Toys</h3>
 
         </div>
-
-
-        <!-- ACCESSORIES -->
 
         <div
             onclick="window.location.href='products.html?category=accessories'"
             style="cursor:pointer;">
 
             🚗
-
-            <h3>
-                Accessories
-            </h3>
+            <h3>Accessories</h3>
 
         </div>
 
@@ -254,26 +183,20 @@
 </section>
 
 
-
 <!-- ===== FEATURED PRODUCTS ===== -->
 
 <section class="products">
 
-    <h2>
-        Featured Products
-    </h2>
+    <h2>Featured Products</h2>
 
     <div class="product-grid">
 
 
-        <!-- ===== SMART WATCH ===== -->
+        <!-- SMART WATCH -->
 
         <div class="product-card">
 
-            <span class="sale">
-                SALE
-            </span>
-
+            <span class="sale">SALE</span>
 
             <a href="product.html?item=smart-watch">
 
@@ -284,53 +207,32 @@
 
             </a>
 
-
             <h3>
-
                 <a href="product.html?item=smart-watch">
                     Smart Watch
                 </a>
-
             </h3>
 
+            <div>⭐⭐⭐⭐⭐</div>
 
-            <div>
-                ⭐⭐⭐⭐⭐
-            </div>
+            <p>£39.99</p>
 
-
-            <p>
-                £39.99
-            </p>
-
-
-            <button
-                onclick="addToCart('Smart Watch',39.99)">
-
+            <button onclick="addToCart('Smart Watch',39.99)">
                 Add To Cart 🛒
-
             </button>
 
-
-            <button
-                onclick="addToWishlist('Smart Watch')">
-
+            <button onclick="addToWishlist('Smart Watch')">
                 ❤️ Wishlist
-
             </button>
 
         </div>
 
 
-
-        <!-- ===== WIRELESS EARBUDS ===== -->
+        <!-- WIRELESS EARBUDS -->
 
         <div class="product-card">
 
-            <span class="sale">
-                SALE
-            </span>
-
+            <span class="sale">SALE</span>
 
             <a href="product.html?item=wireless-earbuds">
 
@@ -341,49 +243,30 @@
 
             </a>
 
-
             <h3>
-
                 <a href="product.html?item=wireless-earbuds">
                     Wireless Earbuds
                 </a>
-
             </h3>
 
+            <div>⭐⭐⭐⭐⭐</div>
 
-            <div>
-                ⭐⭐⭐⭐⭐
-            </div>
+            <p>£24.99</p>
 
-
-            <p>
-                £24.99
-            </p>
-
-
-            <button
-                onclick="addToCart('Wireless Earbuds',24.99)">
-
+            <button onclick="addToCart('Wireless Earbuds',24.99)">
                 Add To Cart 🛒
-
             </button>
 
-
-            <button
-                onclick="addToWishlist('Wireless Earbuds')">
-
+            <button onclick="addToWishlist('Wireless Earbuds')">
                 ❤️ Wishlist
-
             </button>
 
         </div>
 
 
-
-        <!-- ===== HOME GADGET ===== -->
+        <!-- HOME GADGET -->
 
         <div class="product-card">
-
 
             <a href="product.html?item=home-gadget">
 
@@ -394,39 +277,22 @@
 
             </a>
 
-
             <h3>
-
                 <a href="product.html?item=home-gadget">
                     Home Gadget
                 </a>
-
             </h3>
 
+            <div>⭐⭐⭐⭐</div>
 
-            <div>
-                ⭐⭐⭐⭐
-            </div>
+            <p>£29.99</p>
 
-
-            <p>
-                £29.99
-            </p>
-
-
-            <button
-                onclick="addToCart('Home Gadget',29.99)">
-
+            <button onclick="addToCart('Home Gadget',29.99)">
                 Add To Cart 🛒
-
             </button>
 
-
-            <button
-                onclick="addToWishlist('Home Gadget')">
-
+            <button onclick="addToWishlist('Home Gadget')">
                 ❤️ Wishlist
-
             </button>
 
         </div>
@@ -436,22 +302,118 @@
 </section>
 
 
+<!-- ===== PROFESSIONAL FOOTER ===== -->
 
-<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
 
-<footer>
+    <div class="footer-container">
 
-    <h3>
-        All For You
-    </h3>
 
-    <p>
-        Quality products at affordable prices.
-    </p>
+        <!-- STORE -->
 
-    <p>
-        © 2026 All For You. All Rights Reserved.
-    </p>
+        <div class="footer-column">
+
+            <h3>All For You 🛍️</h3>
+
+            <p>
+                Quality products at affordable prices.
+                Shop with confidence and enjoy a simple,
+                secure shopping experience.
+            </p>
+
+        </div>
+
+
+        <!-- SHOP -->
+
+        <div class="footer-column">
+
+            <h3>Shop</h3>
+
+            <a href="products.html">
+                All Products
+            </a>
+
+            <a href="products.html?category=electronics">
+                Electronics
+            </a>
+
+            <a href="products.html?category=fashion">
+                Fashion
+            </a>
+
+            <a href="products.html?category=home">
+                Home & Living
+            </a>
+
+            <a href="products.html?category=beauty">
+                Beauty
+            </a>
+
+        </div>
+
+
+        <!-- CUSTOMER SERVICE -->
+
+        <div class="footer-column">
+
+            <h3>Customer Service</h3>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="delivery.html">
+                Delivery Information
+            </a>
+
+            <a href="returns.html">
+                Returns & Refunds
+            </a>
+
+            <a href="faq.html">
+                FAQs
+            </a>
+
+        </div>
+
+
+        <!-- INFORMATION -->
+
+        <div class="footer-column">
+
+            <h3>Information</h3>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            🔒 Secure Shopping &nbsp; • &nbsp;
+            📦 Fast Delivery &nbsp; • &nbsp;
+            💬 Customer Support
+        </p>
+
+        <p>
+            © 2026 All For You. All Rights Reserved.
+        </p>
+
+    </div>
 
 </footer>
 
@@ -459,5 +421,4 @@
 <script src="js/script.js?v=15"></script>
 
 </body>
-
 </html>
