@@ -7,7 +7,7 @@
 
 <title>Product Details - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 </head>
 
 <body>
@@ -43,24 +43,14 @@
 
             <a href="wishlist.html"
                class="header-icon icon-with-badge">
-
                 ❤️
-
-                <b class="wishlist-count counter-badge">
-                    0
-                </b>
-
+                <b class="wishlist-count counter-badge">0</b>
             </a>
 
             <a href="cart.html"
                class="header-icon icon-with-badge">
-
                 🛒
-
-                <b class="cart-count counter-badge">
-                    0
-                </b>
-
+                <b class="cart-count counter-badge">0</b>
             </a>
 
         </div>
@@ -88,49 +78,55 @@
 
     <div class="product-details-container">
 
-
-        <!-- PRODUCT IMAGE -->
+        <!-- IMAGE -->
 
         <div class="product-details-image">
 
-            <span class="sale">
-                SALE
-            </span>
+            <span class="sale">SALE</span>
 
             <img
+                id="detail-image"
                 src="./IMG_9535.jpeg"
-                alt="Smart Watch"
+                alt="Product"
             >
 
         </div>
 
 
-        <!-- PRODUCT INFORMATION -->
+        <!-- INFORMATION -->
 
         <div class="product-details-info">
 
-            <p class="product-category">
+            <p
+                id="detail-category"
+                class="product-category">
                 Electronics
             </p>
 
-            <h1>
+
+            <h1 id="detail-name">
                 Smart Watch
             </h1>
 
-            <div class="product-rating">
+
+            <div
+                id="detail-rating"
+                class="product-rating">
                 ⭐⭐⭐⭐⭐
                 <span>(5.0)</span>
             </div>
 
-            <h2 class="product-details-price">
+
+            <h2
+                id="detail-price"
+                class="product-details-price">
                 £39.99
             </h2>
 
-            <p class="product-description">
-                A stylish and practical smart watch designed
-                for everyday use. Keep track of your daily
-                activities while enjoying a modern and
-                comfortable design.
+
+            <p
+                id="detail-description"
+                class="product-description">
             </p>
 
 
@@ -146,12 +142,14 @@
             <div class="product-details-buttons">
 
                 <button
-                    onclick="addToCart('Smart Watch',39.99)">
+                    id="detail-cart-button"
+                    type="button">
                     Add To Cart 🛒
                 </button>
 
                 <button
-                    onclick="addToWishlist('Smart Watch')">
+                    id="detail-wishlist-button"
+                    type="button">
                     ❤️ Add To Wishlist
                 </button>
 
@@ -189,6 +187,149 @@
 
 
 <script src="js/script.js?v=15"></script>
+
+
+<!-- ===== DYNAMIC PRODUCT DETAILS ===== -->
+
+<script>
+
+const productDetails = {
+
+    "smart-watch": {
+
+        name: "Smart Watch",
+
+        price: 39.99,
+
+        image: "./IMG_9535.jpeg",
+
+        category: "Electronics",
+
+        rating: "⭐⭐⭐⭐⭐",
+
+        score: "5.0",
+
+        description:
+            "A stylish and practical smart watch designed for everyday use. Keep track of your daily activities while enjoying a modern and comfortable design."
+
+    },
+
+
+    "wireless-earbuds": {
+
+        name: "Wireless Earbuds",
+
+        price: 24.99,
+
+        image: "./IMG_9536.webp",
+
+        category: "Electronics",
+
+        rating: "⭐⭐⭐⭐⭐",
+
+        score: "5.0",
+
+        description:
+            "Comfortable wireless earbuds designed for music, calls and everyday listening. Enjoy a compact design with convenient wireless connectivity."
+
+    },
+
+
+    "home-gadget": {
+
+        name: "Home Gadget",
+
+        price: 29.99,
+
+        image: "./IMG_9537.jpeg",
+
+        category: "Home & Living",
+
+        rating: "⭐⭐⭐⭐",
+
+        score: "4.0",
+
+        description:
+            "A useful home gadget designed to make everyday tasks easier. Practical, simple to use and ideal for modern homes."
+
+    }
+
+};
+
+
+// GET PRODUCT FROM URL
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const item =
+    params.get("item") || "smart-watch";
+
+const selectedProduct =
+    productDetails[item] ||
+    productDetails["smart-watch"];
+
+
+// CHANGE PAGE DETAILS
+
+document.getElementById("detail-image").src =
+    selectedProduct.image;
+
+document.getElementById("detail-image").alt =
+    selectedProduct.name;
+
+document.getElementById("detail-name").textContent =
+    selectedProduct.name;
+
+document.getElementById("detail-category").textContent =
+    selectedProduct.category;
+
+document.getElementById("detail-price").textContent =
+    "£" + selectedProduct.price.toFixed(2);
+
+document.getElementById("detail-description").textContent =
+    selectedProduct.description;
+
+document.getElementById("detail-rating").innerHTML =
+    selectedProduct.rating +
+    " <span>(" +
+    selectedProduct.score +
+    ")</span>";
+
+
+// CHANGE BROWSER TITLE
+
+document.title =
+    selectedProduct.name + " - All For You";
+
+
+// ADD TO CART BUTTON
+
+document
+    .getElementById("detail-cart-button")
+    .addEventListener("click", function() {
+
+        addToCart(
+            selectedProduct.name,
+            selectedProduct.price
+        );
+
+    });
+
+
+// WISHLIST BUTTON
+
+document
+    .getElementById("detail-wishlist-button")
+    .addEventListener("click", function() {
+
+        addToWishlist(
+            selectedProduct.name
+        );
+
+    });
+
+</script>
 
 </body>
 
