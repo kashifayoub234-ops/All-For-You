@@ -2568,3 +2568,82 @@ h1,
         padding: 12px 27px;
     }
 }
+/* =====================================
+   ALL FOR YOU - ANIMATED 3D LOGO
+===================================== */
+
+.animated-store-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    text-decoration: none;
+    overflow: visible;
+}
+
+.brand-logo-image {
+    display: block;
+
+    width: 230px;
+    height: 75px;
+
+    object-fit: contain;
+
+    animation: logoFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 5px 8px rgba(255,153,0,0.22));
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* FLOATING ANIMATION */
+
+@keyframes logoFloat {
+
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+
+/* HOVER */
+
+.animated-store-logo:hover .brand-logo-image {
+
+    transform: scale(1.07);
+
+    filter:
+        drop-shadow(0 7px 13px rgba(255,153,0,0.50));
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .brand-logo-image {
+        width: 190px;
+        height: 65px;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+
+    .brand-logo-image {
+        width: 165px;
+        height: 58px;
+    }
+
+}
