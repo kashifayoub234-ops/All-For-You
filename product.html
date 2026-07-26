@@ -7,7 +7,7 @@
 
 <title>Product Details - All For You</title>
 
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
@@ -22,6 +22,8 @@
             <span class="logo-icon">🛍️</span>
             <span>All For You</span>
         </a>
+
+        <!-- SEARCH -->
 
         <div class="header-search">
 
@@ -39,18 +41,32 @@
 
         </div>
 
+        <!-- HEADER ACTIONS -->
+
         <div class="header-actions">
 
-            <a href="wishlist.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="wishlist.html"
+                class="header-icon icon-with-badge">
+
                 ❤️
-                <b class="wishlist-count counter-badge">0</b>
+
+                <b class="wishlist-count counter-badge">
+                    0
+                </b>
+
             </a>
 
-            <a href="cart.html"
-               class="header-icon icon-with-badge">
+            <a
+                href="cart.html"
+                class="header-icon icon-with-badge">
+
                 🛒
-                <b class="cart-count counter-badge">0</b>
+
+                <b class="cart-count counter-badge">
+                    0
+                </b>
+
             </a>
 
         </div>
@@ -58,14 +74,37 @@
     </div>
 
 
+    <!-- ===== NAVIGATION ===== -->
+
     <nav class="main-nav">
 
-        <a href="index.html">Home</a>
-        <a href="products.html">All Products</a>
-        <a href="products.html">Electronics</a>
-        <a href="products.html">Fashion</a>
-        <a href="products.html">Home & Living</a>
-        <a href="products.html">Beauty</a>
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            All Products
+        </a>
+
+        <a href="products.html?category=electronics">
+            Electronics
+        </a>
+
+        <a href="products.html?category=fashion">
+            Fashion
+        </a>
+
+        <a href="products.html?category=home">
+            Home & Living
+        </a>
+
+        <a href="products.html?category=beauty">
+            Beauty
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
 
     </nav>
 
@@ -78,11 +117,14 @@
 
     <div class="product-details-container">
 
-        <!-- IMAGE -->
+
+        <!-- ===== PRODUCT IMAGE ===== -->
 
         <div class="product-details-image">
 
-            <span class="sale">SALE</span>
+            <span class="sale">
+                SALE
+            </span>
 
             <img
                 id="detail-image"
@@ -93,7 +135,7 @@
         </div>
 
 
-        <!-- INFORMATION -->
+        <!-- ===== PRODUCT INFORMATION ===== -->
 
         <div class="product-details-info">
 
@@ -112,15 +154,19 @@
             <div
                 id="detail-rating"
                 class="product-rating">
+
                 ⭐⭐⭐⭐⭐
                 <span>(5.0)</span>
+
             </div>
 
 
             <h2
                 id="detail-price"
                 class="product-details-price">
+
                 £39.99
+
             </h2>
 
 
@@ -129,6 +175,8 @@
                 class="product-description">
             </p>
 
+
+            <!-- BENEFITS -->
 
             <div class="product-benefits">
 
@@ -139,18 +187,25 @@
             </div>
 
 
+            <!-- BUTTONS -->
+
             <div class="product-details-buttons">
 
                 <button
                     id="detail-cart-button"
                     type="button">
+
                     Add To Cart 🛒
+
                 </button>
+
 
                 <button
                     id="detail-wishlist-button"
                     type="button">
+
                     ❤️ Add To Wishlist
+
                 </button>
 
             </div>
@@ -159,7 +214,9 @@
             <a
                 href="products.html"
                 class="continue-shopping">
+
                 ← Back to Products
+
             </a>
 
         </div>
@@ -173,7 +230,9 @@
 
 <footer>
 
-    <h3>All For You</h3>
+    <h3>
+        All For You
+    </h3>
 
     <p>
         Quality products at affordable prices.
@@ -257,7 +316,7 @@ const productDetails = {
 };
 
 
-// GET PRODUCT FROM URL
+// ===== GET PRODUCT FROM URL =====
 
 const params =
     new URLSearchParams(window.location.search);
@@ -270,7 +329,7 @@ const selectedProduct =
     productDetails["smart-watch"];
 
 
-// CHANGE PAGE DETAILS
+// ===== CHANGE PRODUCT DETAILS =====
 
 document.getElementById("detail-image").src =
     selectedProduct.image;
@@ -297,13 +356,14 @@ document.getElementById("detail-rating").innerHTML =
     ")</span>";
 
 
-// CHANGE BROWSER TITLE
+// ===== BROWSER TITLE =====
 
 document.title =
-    selectedProduct.name + " - All For You";
+    selectedProduct.name +
+    " - All For You";
 
 
-// ADD TO CART BUTTON
+// ===== ADD TO CART =====
 
 document
     .getElementById("detail-cart-button")
@@ -317,7 +377,7 @@ document
     });
 
 
-// WISHLIST BUTTON
+// ===== ADD TO WISHLIST =====
 
 document
     .getElementById("detail-wishlist-button")
