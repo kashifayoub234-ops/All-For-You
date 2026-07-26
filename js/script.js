@@ -1147,3 +1147,74 @@ document.addEventListener(
 
     }
 );
+// =========================
+// ACTIVE NAVIGATION
+// =========================
+
+function setActiveNavigation() {
+
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const currentCategory =
+        params.get("category");
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active-nav");
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+        const linkURL =
+            new URL(href, window.location.href);
+
+        const linkPage =
+            linkURL.pathname.split("/").pop();
+
+        const linkCategory =
+            linkURL.searchParams.get("category");
+
+
+        // CATEGORY PAGE
+        if (
+            currentPage === "products.html" &&
+            currentCategory &&
+            linkPage === "products.html" &&
+            linkCategory === currentCategory
+        ) {
+            link.classList.add("active-nav");
+            return;
+        }
+
+
+        // ALL PRODUCTS
+        if (
+            currentPage === "products.html" &&
+            !currentCategory &&
+            linkPage === "products.html" &&
+            !linkCategory
+        ) {
+            link.classList.add("active-nav");
+            return;
+        }
+
+
+        // HOME
+        if (
+            currentPage === "index.html" &&
+            linkPage === "index.html"
+        ) {
+            link.classList.add("active-nav");
+        }
+
+    });
+}
+
+setActiveNavigation();
