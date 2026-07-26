@@ -1907,3 +1907,291 @@ h3 {
         scroll-behavior: auto !important;
     }
 }
+/* =========================================
+   PREMIUM PAGE + NAVIGATION ANIMATIONS
+========================================= */
+
+
+/* ===== PAGE OPEN ANIMATION ===== */
+
+body {
+    animation: pageOpen 0.55s ease-out;
+}
+
+@keyframes pageOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ===== STICKY HEADER ===== */
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.18);
+}
+
+
+/* ===== NAVIGATION BAR ===== */
+
+.main-nav {
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ===== NAV LINKS ===== */
+
+.main-nav a {
+    position: relative;
+    display: inline-block;
+
+    padding: 7px 4px;
+
+    font-weight: 700;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* HOVER */
+
+.main-nav a:hover {
+    color: #ff9900;
+    transform: translateY(-2px);
+}
+
+
+/* ANIMATED LINE */
+
+.main-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #ff9900;
+
+    border-radius: 10px;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+
+.main-nav a:hover::after {
+    width: 80%;
+}
+
+
+/* ===== ACTIVE PAGE ===== */
+
+.main-nav a.active-nav {
+
+    color: #ff9900;
+
+    font-weight: 800;
+}
+
+
+.main-nav a.active-nav::after {
+    width: 80%;
+}
+
+
+/* =========================================
+   SECTION ENTRANCE
+========================================= */
+
+.hero,
+.categories,
+.products,
+.contact-page,
+.checkout-page,
+.cart-page,
+.product-details-page {
+
+    animation:
+        sectionReveal 0.7s ease-out both;
+}
+
+
+@keyframes sectionReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   HEADING ANIMATION
+========================================= */
+
+h1,
+.products > h2,
+.categories > h2 {
+
+    animation:
+        headingReveal 0.7s ease-out both;
+}
+
+
+@keyframes headingReveal {
+
+    from {
+        opacity: 0;
+        transform: translateX(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================
+   PRODUCT + CATEGORY CARDS
+========================================= */
+
+.product-card,
+.category-box > div {
+
+    animation:
+        premiumCardReveal 0.6s ease-out both;
+}
+
+
+@keyframes premiumCardReveal {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* STAGGER EFFECT */
+
+.product-card:nth-child(1),
+.category-box > div:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.product-card:nth-child(2),
+.category-box > div:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.product-card:nth-child(3),
+.category-box > div:nth-child(3) {
+    animation-delay: 0.19s;
+}
+
+.category-box > div:nth-child(4) {
+    animation-delay: 0.26s;
+}
+
+.category-box > div:nth-child(5) {
+    animation-delay: 0.33s;
+}
+
+.category-box > div:nth-child(6) {
+    animation-delay: 0.40s;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .main-header {
+        position: sticky;
+        top: 0;
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+
+        gap: 6px;
+
+        overflow-x: auto;
+
+        padding: 10px 12px;
+    }
+
+    .main-nav a {
+        flex: 0 0 auto;
+        padding: 7px 8px;
+    }
+}
+
+
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body,
+    .hero,
+    .categories,
+    .products,
+    .contact-page,
+    .checkout-page,
+    .cart-page,
+    .product-details-page,
+    .product-card,
+    .category-box > div,
+    h1,
+    .products > h2,
+    .categories > h2 {
+
+        animation: none !important;
+    }
+}
