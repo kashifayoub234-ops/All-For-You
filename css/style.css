@@ -2782,3 +2782,55 @@ h1,
         height: 60px !important;
     }
 }
+/* ===== LOGO BIG + LEFT FINAL FIX ===== */
+
+.header-top {
+    position: relative;
+}
+
+.animated-store-logo {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+}
+
+.brand-logo-image {
+    width: 300px !important;
+    height: 95px !important;
+    object-fit: contain !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .header-top {
+        padding-left: 0 !important;
+        padding-right: 15px !important;
+    }
+
+    .animated-store-logo {
+        margin-left: -45px !important;
+    }
+
+    .brand-logo-image {
+        width: 300px !important;
+        height: 90px !important;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 400px) {
+
+    .animated-store-logo {
+        margin-left: -40px !important;
+    }
+
+    .brand-logo-image {
+        width: 270px !important;
+        height: 85px !important;
+    }
+}
