@@ -2883,3 +2883,31 @@ h1,
     transform:none !important;
     font-size:26px;
 }
+/* ===== LOGO FULL LEFT ===== */
+
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 10px 15px 0 !important;
+}
+
+.store-logo{
+    margin:0 !important;
+    padding:0 !important;
+}
+
+.brand-logo-image{
+    width:220px !important;
+    height:auto !important;
+    margin-left:-20px !important;
+}
+
+@media (max-width:700px){
+
+    .brand-logo-image{
+        width:220px !important;
+        margin-left:-35px !important;
+    }
+
+}
