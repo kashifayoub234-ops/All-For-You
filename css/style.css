@@ -2834,3 +2834,38 @@ h1,
         height: 85px !important;
     }
 }
+/* ===== ACCOUNT ICON ===== */
+
+.account-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    border: 2px solid #ff9900;
+    border-radius: 50%;
+
+    transition: 0.25s ease;
+}
+
+.account-icon:hover {
+    background: #ff9900;
+    transform: translateY(-2px) scale(1.05);
+}
+
+@media (max-width: 700px) {
+
+    .header-actions {
+        gap: 10px !important;
+    }
+
+    .account-icon {
+        width: 37px;
+        height: 37px;
+        font-size: 21px;
+    }
+}
