@@ -2869,3 +2869,17 @@ h1,
         font-size: 21px;
     }
 }
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.account-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:0 !important;
+    transform:none !important;
+    font-size:26px;
+}
