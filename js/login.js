@@ -23,7 +23,22 @@ loginForm.addEventListener("submit", async (e) => {
 
     } catch (error) {
 
-        alert(error.message);
+        switch (error.code) {
+  case "auth/invalid-credential":
+    alert("Incorrect email or password.");
+    break;
+
+  case "auth/invalid-email":
+    alert("Please enter a valid email address.");
+    break;
+
+  case "auth/too-many-requests":
+    alert("Too many failed attempts. Please try again later.");
+    break;
+
+  default:
+    alert("Login failed. Please try again.");
+}
 
     }
 
