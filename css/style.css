@@ -2889,7 +2889,8 @@ h1,
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:15px 10px 15px 0 !important;
+    padding:8px 10px 8px 0 !important;
+    min-height:65px !important;
 }
 
 .store-logo{
@@ -2899,15 +2900,17 @@ h1,
 
 .brand-logo-image{
     width:220px !important;
-    height:auto !important;
+    height:50px !important;
+    object-fit:contain;
     margin-left:-20px !important;
 }
 
 @media (max-width:700px){
 
     .brand-logo-image{
-        width:220px !important;
-        margin-left:-35px !important;
-    }
+    width:220px !important;
+    height:48px !important;
+    margin-left:-35px !important;
+}
 
 }
