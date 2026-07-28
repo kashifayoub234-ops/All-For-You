@@ -2903,7 +2903,7 @@ h1,
     height:auto !important;
     max-height:60px !important;
     object-fit:contain;
-    margin-left:-20px !important;
+    margin-left:-10px !important;
 }
 
 @media (max-width:700px){
@@ -2912,7 +2912,7 @@ h1,
         width:220px !important;
         height:auto !important;
         max-height:55px !important;
-        margin-left:-35px !important;
+        margin-left:-25px !important;
     }
 
 }
