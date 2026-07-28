@@ -1,10 +1,16 @@
-import { auth } from "./firebase-config.js";
+import { auth, db } from "./firebase-config.js";
 
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const registerForm = document.getElementById("registerForm");
 
@@ -24,15 +30,22 @@ registerForm.addEventListener("submit", async (e) => {
 
     try {
 
-        const userCredential =
-            await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
 
         await updateProfile(userCredential.user, {
             displayName: fullName
+        });
+
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+            name: fullName,
+            email: email,
+            createdAt: serverTimestamp(),
+            wishlist: [],
+            cart: []
         });
 
         await sendEmailVerification(userCredential.user);
