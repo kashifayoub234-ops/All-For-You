@@ -1,4 +1,3 @@
-alert("register.js loaded");
 import { auth } from "./firebase-config.js";
 
 import {
