@@ -43,3 +43,31 @@ loginForm.addEventListener("submit", async (e) => {
     }
 
 });
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+const forgotPassword = document.getElementById("forgotPassword");
+
+forgotPassword.addEventListener("click", async (e) => {
+
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+
+    if (!email) {
+        alert("Please enter your email address first.");
+        return;
+    }
+
+    try {
+
+        await sendPasswordResetEmail(auth, email);
+
+        alert("Password reset email has been sent. Please check your inbox.");
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
+
+});
